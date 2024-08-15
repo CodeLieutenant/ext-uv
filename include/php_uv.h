@@ -1,9 +1,6 @@
-#ifndef PHP_UV_H
+#pragma once
 
-#define PHP_UV_H
-
-#define PHP_UV_EXTNAME "uv"
-#define PHP_UV_VERSION "0.3.0"
+#include <version.h>
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -50,15 +47,11 @@ typedef struct {
 
 #include <Zend/zend.h>
 #include <Zend/zend_compile.h>
-#include <Zend/zend_exceptions.h>
-#include <Zend/zend_extensions.h>
 #include <Zend/zend_globals.h>
 #include <Zend/zend_hash.h>
 #include <Zend/zend_interfaces.h>
-#include <Zend/zend_list.h>
 #include <Zend/zend_object_handlers.h>
 #include <Zend/zend_variables.h>
-#include <Zend/zend_vm.h>
 
 #if PHP_VERSION_ID >= 80000
 #define TSRMLS_C
@@ -247,5 +240,3 @@ ZEND_TSRMLS_CACHE_EXTERN()
 #else
 #define UV_G(v) (uv_globals.v)
 #endif
-
-#endif /* PHP_UV_H */

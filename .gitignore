@@ -34,7 +34,6 @@ config.nice
 config.status
 config.sub
 
-
 # ignore dtrace header
 phpuv_dtrace.h
 
@@ -45,3 +44,9 @@ tests/*.log
 tests/*.php
 tests/*.sh
 tests/*.out
+
+php/
+out/
+.idea/
+
+config.h.in~

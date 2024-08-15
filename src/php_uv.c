@@ -13,12 +13,11 @@
    +----------------------------------------------------------------------+
  */
 
-#pragma GCC diagnostic ignored "-Wmissing-braces"
+#include <php.h>
+#include <ext/standard/info.h>
+#include <Zend/zend_smart_str.h>
 
 #include "php_uv.h"
-#include "php_main.h"
-#include "ext/standard/info.h"
-#include "zend_smart_str.h"
 
 #ifndef PHP_UV_DEBUG
 #define PHP_UV_DEBUG 0
@@ -6476,7 +6475,7 @@ static PHP_GINIT_FUNCTION(uv)
 
 zend_module_entry uv_module_entry = {
 	STANDARD_MODULE_HEADER,
-	"uv",
+	PHP_UV_EXTNAME,
 	uv_functions,					/* Functions */
 	PHP_MINIT(uv),	/* MINIT */
 	NULL,					/* MSHUTDOWN */

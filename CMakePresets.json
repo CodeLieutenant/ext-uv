@@ -1,0 +1,77 @@
+{
+  "version": 2,
+  "configurePresets": [
+    {
+      "name": "Debug",
+      "displayName": "Debug",
+      "description": "",
+      "generator": "Ninja",
+      "environment": {},
+      "binaryDir": "${sourceDir}/out/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+        "PHP_UV_ENABLE_SANITIZERS": "ON",
+        "SANITIZE_UNDEFINED": "ON",
+        "SANITIZE_ADDRESS": "ON"
+      }
+    },
+    {
+      "name": "Release",
+      "displayName": "Release",
+      "description": "",
+      "generator": "Ninja",
+      "environment": {},
+      "binaryDir": "${sourceDir}/out/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+        "SANITIZE_UNDEFINED": "OFF",
+        "SANITIZE_ADDRESS": "OFF"
+      }
+    },
+    {
+      "name": "RelWithInfo",
+      "displayName": "RelWithInfo",
+      "description": "",
+      "generator": "Ninja",
+      "environment": {},
+      "binaryDir": "${sourceDir}/out/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithInfo",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+        "PHP_UV_ENABLE_SANITIZERS": "OFF",
+        "SANITIZE_UNDEFINED": "OFF",
+        "SANITIZE_ADDRESS": "OFF"
+      }
+    },
+    {
+      "name": "CI",
+      "description": "",
+      "generator": "Ninja",
+      "environment": {},
+      "binaryDir": "${sourceDir}/out/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithInfo",
+        "PHP_UV_ENABLE_SANITIZERS": "OFF",
+        "SANITIZE_UNDEFINED": "OFF",
+        "SANITIZE_ADDRESS": "OFF",
+        "CUSTOM_PHP_CONFIG": "/php/bin/php-config"
+      }
+    },
+    {
+      "name": "CIDebug",
+      "description": "",
+      "generator": "Ninja",
+      "environment": {},
+      "binaryDir": "${sourceDir}/out/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "PHP_UV_ENABLE_SANITIZERS": "ON",
+        "SANITIZE_UNDEFINED": "ON",
+        "SANITIZE_ADDRESS": "ON",
+        "CUSTOM_PHP_CONFIG": "/php/bin/php-config"
+      }
+    }
+  ]
+}
