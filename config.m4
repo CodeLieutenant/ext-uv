@@ -49,7 +49,7 @@ cmake_clean:
 	@cmake --build out/$CMAKE_BUILD_TYPE --target remove_build
 
 cmake_install:
-  @cd out/$CMAKE_BUILD_TYPE && ninja install && cd ../../
+    @cd out/$CMAKE_BUILD_TYPE && ninja install && cd ../../
 
 install: cmake_install
 
