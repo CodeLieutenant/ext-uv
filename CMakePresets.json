@@ -26,7 +26,6 @@
       "binaryDir": "${sourceDir}/out/${presetName}",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
         "SANITIZE_UNDEFINED": "OFF",
         "SANITIZE_ADDRESS": "OFF"
       }
