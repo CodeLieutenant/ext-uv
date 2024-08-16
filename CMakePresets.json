@@ -11,9 +11,10 @@
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
-        "PHP_UV_ENABLE_SANITIZERS": "ON",
+        "ENABLE_SANITIZERS": "ON",
         "SANITIZE_UNDEFINED": "ON",
-        "SANITIZE_ADDRESS": "ON"
+        "SANITIZE_ADDRESS": "ON",
+        "SANITIZE_LINK_STATIC": "ON"
       }
     },
     {
@@ -40,7 +41,7 @@
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithInfo",
         "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
-        "PHP_UV_ENABLE_SANITIZERS": "OFF",
+        "ENABLE_SANITIZERS": "OFF",
         "SANITIZE_UNDEFINED": "OFF",
         "SANITIZE_ADDRESS": "OFF"
       }
@@ -53,9 +54,7 @@
       "binaryDir": "${sourceDir}/out/${presetName}",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithInfo",
-        "PHP_UV_ENABLE_SANITIZERS": "OFF",
-        "SANITIZE_UNDEFINED": "OFF",
-        "SANITIZE_ADDRESS": "OFF",
+        "ENABLE_SANITIZERS": "OFF",
         "CUSTOM_PHP_CONFIG": "/php/bin/php-config"
       }
     },
@@ -67,9 +66,10 @@
       "binaryDir": "${sourceDir}/out/${presetName}",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-        "PHP_UV_ENABLE_SANITIZERS": "ON",
+        "ENABLE_SANITIZERS": "ON",
         "SANITIZE_UNDEFINED": "ON",
         "SANITIZE_ADDRESS": "ON",
+        "SANITIZE_LINK_STATIC": "ON",
         "CUSTOM_PHP_CONFIG": "/php/bin/php-config"
       }
     }
