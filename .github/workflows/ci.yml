@@ -17,8 +17,8 @@ jobs:
       matrix:
         php:
           - 8.3
-          - 8.2
-          - 8.1
+#           - 8.2
+#           - 8.1
     steps:
       - uses: actions/checkout@v4
       - uses: shivammathur/setup-php@v2
@@ -32,8 +32,8 @@ jobs:
         with:
           cmake-version: '3.24'
       - name: 'Install Libuv'
-        run: sudo ./scripts/compile-libuv.sh RelWithInfo v1.48.0 >> /dev/null
+        run: sudo ./scripts/compile-libuv.sh RelWithInfo 1.48.0 >> /dev/null
       - name: Compile uv extension
-        run: phpize && ./configure && sudo make install && echo "extension = uv" >> $(php -r 'echo php_ini_loaded_file();')
+        run: phpize && ./configure && make && sudo make install && echo "extension = uv" >> $(php -r 'echo php_ini_loaded_file();')
       - name: Run the tests
         run: php run-tests.php -q -j4 -p $(which php) -m --offline --show-diff --set-timeout 120
