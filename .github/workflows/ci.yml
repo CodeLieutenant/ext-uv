@@ -12,24 +12,24 @@ jobs:
       fail-fast: false
       matrix:
         php:
-          - 8.2
-          - 8.1
-          - 8.0
+          - 8.3
+#           - 8.2
+#           - 8.1
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-      - run: |
-          # install 'libuv'
-          mkdir libuv
-          curl -L https://github.com/libuv/libuv/archive/v1.6.1.tar.gz | tar xzf -
-          cd libuv-1.6.1 && ./autogen.sh && ./configure --prefix=$(readlink -f `pwd`/../libuv) && make && make install
-          cd ..
-
-          # install 'php-uv'
-          phpize && ./configure --with-uv=$(readlink -f `pwd`/libuv)
-          make
-          sudo make install
-          echo "extension = uv.so" >> $(php -r 'echo php_ini_loaded_file();')
-      - run: php run-tests.php -p `which php` --offline --show-diff --set-timeout 120
+          tools: phpize, pecl, php-config
+      - name: install deps
+        run: apt-get install -y ninja-build ccache pkg-config libasan8 libubsan1 build-essential valgrind >> /dev/null
+      - name: Setup cmake
+        uses: jwlawson/actions-setup-cmake@v2
+        with:
+          cmake-version: '3.24'
+      - name: 'Install Libuv'
+        run: ./scripts/compile-libuv.sh RelWithInfo v1.48.0 >> /dev/null
+      - name: Compile uv extension
+        run: phpize && ./configure && make && echo "extension = $(pwd)/modules/uv.so" >> $(php -r 'echo php_ini_loaded_file();')
+      - name: Run the tests
+        run: php run-tests.php -q -j4 -p $(which php) --offline --show-diff --set-timeout 120

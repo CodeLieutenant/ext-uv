@@ -88,3 +88,9 @@ set_target_properties(
         C_STANDARD_REQUIRED ON
         C_EXTENSIONS ON
 )
+
+if(CMAKE_INSTALL_PREFIX STREQUAL "")
+    set(CMAKE_INSTALL_PREFIX "${PHP_EXTENSION_DIR}")
+endif()
+
+install(TARGETS ext-uv DESTINATION ${CMAKE_INSTALL_PREFIX})

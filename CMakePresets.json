@@ -14,7 +14,7 @@
         "ENABLE_SANITIZERS": "ON",
         "SANITIZE_UNDEFINED": "ON",
         "SANITIZE_ADDRESS": "ON",
-        "SANITIZE_LINK_STATIC": "ON"
+        "SANITIZE_LINK_STATIC": "OFF"
       }
     },
     {
@@ -69,7 +69,7 @@
         "ENABLE_SANITIZERS": "ON",
         "SANITIZE_UNDEFINED": "ON",
         "SANITIZE_ADDRESS": "ON",
-        "SANITIZE_LINK_STATIC": "ON",
+        "SANITIZE_LINK_STATIC": "OFF",
         "CUSTOM_PHP_CONFIG": "/php/bin/php-config"
       }
     }
