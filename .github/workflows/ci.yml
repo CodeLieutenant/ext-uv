@@ -22,7 +22,7 @@ jobs:
           php-version: ${{ matrix.php }}
           tools: phpize, pecl, php-config
       - name: install deps
-        run: apt-get install -y ninja-build ccache pkg-config libasan8 libubsan1 build-essential valgrind >> /dev/null
+        run: sudo apt-get install -y ninja-build ccache pkg-config libasan8 libubsan1 build-essential valgrind >> /dev/null
       - name: Setup cmake
         uses: jwlawson/actions-setup-cmake@v2
         with:
@@ -30,6 +30,6 @@ jobs:
       - name: 'Install Libuv'
         run: ./scripts/compile-libuv.sh RelWithInfo v1.48.0 >> /dev/null
       - name: Compile uv extension
-        run: phpize && ./configure && make && echo "extension = $(pwd)/modules/uv.so" >> $(php -r 'echo php_ini_loaded_file();')
+        run: phpize && ./configure && sudo make install && echo "extension = uv" >> $(php -r 'echo php_ini_loaded_file();')
       - name: Run the tests
         run: php run-tests.php -q -j4 -p $(which php) --offline --show-diff --set-timeout 120
