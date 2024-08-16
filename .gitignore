@@ -50,3 +50,5 @@ out/
 .idea/
 
 config.h.in~
+tests/*.mem
+*.so

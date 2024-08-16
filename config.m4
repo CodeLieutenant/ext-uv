@@ -43,11 +43,7 @@ all: cmake_build
 
 cmake_build:
 	@cmake --preset Release -DCMAKE_CXX_COMPILER_LAUNCHER=ccache && cd out/Release && ninja install && cd ../../
-
-	if [ -f ./out/install/Release/uv.dylib ] ; then \
-		@cp ./out/install/Release/uv.dylib ./modules/uv.so ; fi
-	if [ -f ./out/install/Release/uv.so ] ; then \
-	@cp ./out/install/Release/uv.so ./modules/uv.so ; fi
+	@cp ./out/install/Release/uv.so ./modules/uv.so
 
 cmake_clean:
 	@cmake --build out/$CMAKE_BUILD_TYPE --target remove_build
