@@ -4,6 +4,12 @@ PHP_ARG_WITH(uv, Whether to include "uv" support,
 PHP_ARG_ENABLE(uv-debug, for uv debug support,
     [ --enable-uv-debug       Enable enable uv debug support], no, no)
 
+PHP_ARG_ENABLE(libuv-static, for libuv static,
+    [ --enable-libuv-static       Compile extension with static libuv], no, no)
+
+PHP_ARG_ENABLE(libuv-from-src, for libuv from source,
+    [ --enable-libuv-from-src       Use libuv from source], no, no)
+
 if test $PHP_UV != "no"; then
     PHP_NEW_EXTENSION(uv, [ ], $ext_shared)
     PHP_ADD_EXTENSION_DEP(uv, sockets, true)
@@ -21,7 +27,7 @@ if test $PHP_UV != "no"; then
     fi
 
     CMAKE_BUILD_TYPE="Release"
-    CMAKE_FLAGS="-DCMAKE_CXX_COMPILER_LAUNCHER=ccache"
+    CMAKE_FLAGS="-DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_INSTALL_PREFIX=\"\""
 
     if test "$PHP_UV_DEBUG" != "no"; then
         CMAKE_BUILD_TYPE="Debug"
@@ -49,7 +55,7 @@ cmake_clean:
 	@cmake --build out/$CMAKE_BUILD_TYPE --target remove_build
 
 cmake_install:
-    @cd out/$CMAKE_BUILD_TYPE && ninja install && cd ../../
+	@cd out/$CMAKE_BUILD_TYPE && ninja install && cd ../../
 
 install: cmake_install
 

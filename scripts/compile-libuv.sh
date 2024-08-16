@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
 # -*- coding: utf-8 -*-
 
-LIBUV_BUILD_TYPE="RelWithInfo"
-LIBUV_VERSION=${2:-"v1.48.0"}
-LIBUV_REPO=${3:-"https://github.com/libuv/libuv.git"}
+LIBUV_BUILD_TYPE=${1:-"RelWithInfo"}
+LIBUV_VERSION=${2:-"1.48.0"}
 CURRENT_DIR="$(pwd)"
 
-git clone --depth=1 "$LIBUV_REPO" /opt/libuv
+cd /opt || exit 1
 
-cd /opt/libuv || exit 1
+curl -L "https://github.com/libuv/libuv/archive/v$LIBUV_VERSION.tar.gz" | tar xzf -
 
-git fetch --tags
+mv "libuv-$LIBUV_VERSION" libuv || exit 1
 
-git checkout -b "$LIBUV_VERSION" "tags/$LIBUV_VERSION"
+cd libuv || exit 1
 
 mkdir build || exit 1
 
@@ -20,7 +19,6 @@ cd build || exit 1
 
 LDFLAGS="-flto" CFLAGS="-fPIC" cmake -G Ninja \
     -DBUILD_TESTING=OFF \
-    -DBUILD_BENCHMARKS=OFF \
     -DLIBUV_BUILD_SHARED=ON \
     -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
     -DCMAKE_BUILD_TYPE="$LIBUV_BUILD_TYPE" ..
