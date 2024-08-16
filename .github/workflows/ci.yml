@@ -2,7 +2,11 @@ name: CI
 
 on:
   push:
+    branches:
+      - 0.3.x
   pull_request:
+    branches:
+      - 0.3.x
 
 jobs:
   tests:
@@ -13,8 +17,8 @@ jobs:
       matrix:
         php:
           - 8.3
-#           - 8.2
-#           - 8.1
+          - 8.2
+          - 8.1
     steps:
       - uses: actions/checkout@v4
       - uses: shivammathur/setup-php@v2
@@ -32,4 +36,4 @@ jobs:
       - name: Compile uv extension
         run: phpize && ./configure && sudo make install && echo "extension = uv" >> $(php -r 'echo php_ini_loaded_file();')
       - name: Run the tests
-        run: php run-tests.php -q -j4 -p $(which php) --offline --show-diff --set-timeout 120
+        run: php run-tests.php -q -j4 -p $(which php) -m --offline --show-diff --set-timeout 120
