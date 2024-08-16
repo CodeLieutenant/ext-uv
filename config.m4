@@ -50,7 +50,7 @@ cmake_build:
 	@cp ./out/install/Release/uv.so ./modules/uv.so ; fi
 
 cmake_clean:
-	@cmake clean
+	@cmake --build out/$CMAKE_BUILD_TYPE --target remove_build
 
 .PHONY: cmake_build cmake_clean
 

@@ -27,12 +27,14 @@ endif ()
 project(php-uv)
 enable_language(C)
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake" "${CMAKE_SOURCE_DIR}/externals/sanitizers-cmake/cmake")
 
 # if build type is not set, default to debug
 if (NOT CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "")
     set(CMAKE_BUILD_TYPE "Debug")
 endif ()
+
+include(cmake/Clean.cmake)
 
 set(PHP_UV_VERSION "1.0.0-dev")
 
@@ -49,6 +51,10 @@ option(LIBUV_FROM_SRC "Build LibUV from Source" OFF)
 set(LIBUV_SRC_VERSION "1.48.0" CACHE STRING "Tag for LibUV source")
 
 find_package(PHP REQUIRED)
+
+if (ENABLE_SANITIZERS)
+    find_package(Sanitizers REQUIRED)
+endif ()
 
 set(SRC_LIST src/uv.c src/php_uv.c)
 
