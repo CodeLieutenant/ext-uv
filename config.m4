@@ -49,7 +49,7 @@ all: cmake_build
 
 cmake_build:
 	@cmake --preset $CMAKE_BUILD_TYPE -DCMAKE_CXX_COMPILER_LAUNCHER=ccache && cd out/$CMAKE_BUILD_TYPE && ninja && cd ../../
-	@cp ./out/install/$CMAKE_BUILD_TYPE/uv.so ./modules/uv.so
+	@cp ./out/$CMAKE_BUILD_TYPE/uv.so ./modules/uv.so
 
 cmake_clean:
 	@cmake --build out/$CMAKE_BUILD_TYPE --target remove_build
