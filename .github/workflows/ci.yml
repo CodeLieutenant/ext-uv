@@ -28,7 +28,7 @@ jobs:
         with:
           cmake-version: '3.24'
       - name: 'Install Libuv'
-        run: ./scripts/compile-libuv.sh RelWithInfo v1.48.0 >> /dev/null
+        run: sudo ./scripts/compile-libuv.sh RelWithInfo v1.48.0 >> /dev/null
       - name: Compile uv extension
         run: phpize && ./configure && sudo make install && echo "extension = uv" >> $(php -r 'echo php_ini_loaded_file();')
       - name: Run the tests
