@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run PHP With Libuv" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-e -d extension=$CMakeCurrentBuildDir$/uv.so -m" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$ContentRoot$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="php-uv" TARGET_NAME="ext-uv" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/php/8.3-debug-nts/bin/php">
+    <method v="2">
+      <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+    </method>
+  </configuration>
+</component>

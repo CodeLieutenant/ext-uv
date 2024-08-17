@@ -1,14 +1,17 @@
-PHP_ARG_WITH(uv, Whether to include "uv" support,
-[ --with-uv[=DIR]        Include "uv" support])
-
 PHP_ARG_ENABLE(uv-debug, for uv debug support,
     [ --enable-uv-debug       Enable enable uv debug support], no, no)
+
+PHP_ARG_ENABLE(ext-testing, enable tests running,
+    [ --enable-ext-testing       Enable running php tests through cmake/ctest], no, no)
 
 PHP_ARG_ENABLE(libuv-static, for libuv static,
     [ --enable-libuv-static       Compile extension with static libuv], no, no)
 
 PHP_ARG_ENABLE(libuv-from-src, for libuv from source,
     [ --enable-libuv-from-src       Use libuv from source], no, no)
+
+PHP_ARG_WITH(libuv-version, Libuv version,
+[ --with-libuv-version[=VERSION]        Version to fetch the LibUV sources], 1.48.0, no)
 
 if test $PHP_UV != "no"; then
     PHP_NEW_EXTENSION(uv, [ ], $ext_shared)
@@ -37,13 +40,16 @@ if test $PHP_UV != "no"; then
         CMAKE_FLAGS="$CMAKE_FLAGS -DLIBUV_STATIC=ON"
     fi
 
-    if test "$PHP_LIBUV_FROM_SRC" == "yes"; then
-        CMAKE_FLAGS="$CMAKE_FLAGS -DLIBUV_FROM_SRC=ON -DLIBUV_SRC_VERSION=1.48.0"
+    if test "$PHP_EXT_TESTING" == "yes"; then
+        CMAKE_FLAGS="$CMAKE_FLAGS -DBUILD_TESTING=ON"
+		else
+        CMAKE_FLAGS="$CMAKE_FLAGS -DBUILD_TESTING=OFF"
     fi
 
-    if test "$PHP_LIBUV_SRC_VERSION" != ""; then
-        CMAKE_FLAGS="$CMAKE_FLAGS -DLIBUV_SRC_VERION=$PHP_LIBUV_SRC_VERSION"
+    if test "$PHP_LIBUV_FROM_SRC" == "yes"; then
+        CMAKE_FLAGS="$CMAKE_FLAGS -DLIBUV_FROM_SRC=ON -DLIBUV_SRC_VERSION=$PHP_LIBUV_VERSION"
     fi
+
     cat >> Makefile.objects << EOF
 all: cmake_build
 

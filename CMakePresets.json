@@ -13,8 +13,7 @@
         "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
         "ENABLE_SANITIZERS": "ON",
         "SANITIZE_UNDEFINED": "ON",
-        "SANITIZE_ADDRESS": "ON",
-        "SANITIZE_LINK_STATIC": "OFF"
+        "SANITIZE_ADDRESS": "ON"
       }
     },
     {

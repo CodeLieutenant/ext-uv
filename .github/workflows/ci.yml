@@ -34,6 +34,6 @@ jobs:
       - name: 'Install Libuv'
         run: sudo ./scripts/compile-libuv.sh RelWithInfo 1.48.0 >> /dev/null
       - name: Compile uv extension
-        run: phpize && ./configure && make && sudo make install && echo "extension = uv" >> $(php -r 'echo php_ini_loaded_file();')
+        run: phpize && ./configure --enable-ext-testing && make && sudo make install && echo "extension = uv" >> $(php -r 'echo php_ini_loaded_file();')
       - name: Run the tests
         run: php run-tests.php -q -j4 -p $(which php) -m --show-diff --set-timeout 120
