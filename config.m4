@@ -1,14 +1,17 @@
+PHP_ARG_WITH(uv, Whether to include "uv" support,
+[ --with-uv[=DIR]        Include "uv" support])
+
 PHP_ARG_ENABLE(uv-debug, for uv debug support,
-    [ --enable-uv-debug       Enable enable uv debug support], no, no)
+    [ --enable-uv-debug       Enable enable uv debug support])
 
 PHP_ARG_ENABLE(ext-testing, enable tests running,
-    [ --enable-ext-testing       Enable running php tests through cmake/ctest], no, no)
+    [ --enable-ext-testing       Enable running php tests through cmake/ctest])
 
 PHP_ARG_ENABLE(libuv-static, for libuv static,
-    [ --enable-libuv-static       Compile extension with static libuv], no, no)
+    [ --enable-libuv-static       Compile extension with static libuv])
 
 PHP_ARG_ENABLE(libuv-from-src, for libuv from source,
-    [ --enable-libuv-from-src       Use libuv from source], no, no)
+    [ --enable-libuv-from-src       Use libuv from source])
 
 PHP_ARG_WITH(libuv-version, Libuv version,
 [ --with-libuv-version[=VERSION]        Version to fetch the LibUV sources], 1.48.0, no)
@@ -29,11 +32,11 @@ if test $PHP_UV != "no"; then
         AC_MSG_ERROR([cmake command not found, install it with your package manager or use pipx install cmake])
     fi
 
-    CMAKE_BUILD_TYPE="Release"
-    CMAKE_FLAGS="-DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_INSTALL_PREFIX=\"\""
+    CMAKE_BUILD_TYPE="Debug"
+    CMAKE_FLAGS="-DCMAKE_CXX_COMPILER_LAUNCHER=ccache"
 
-    if test "$PHP_UV_DEBUG" != "no"; then
-        CMAKE_BUILD_TYPE="Debug"
+    if test "$PHP_UV_DEBUG" == "no"; then
+        CMAKE_BUILD_TYPE="Release"
     fi
 
     if test "$PHP_LIBUV_STATIC" == "yes"; then
@@ -41,9 +44,7 @@ if test $PHP_UV != "no"; then
     fi
 
     if test "$PHP_EXT_TESTING" == "yes"; then
-        CMAKE_FLAGS="$CMAKE_FLAGS -DBUILD_TESTING=ON"
-		else
-        CMAKE_FLAGS="$CMAKE_FLAGS -DBUILD_TESTING=OFF"
+        CMAKE_FLAGS="$CMAKE_FLAGS -DBUILD_TESTING=$PHP_EXT_TESTING"
     fi
 
     if test "$PHP_LIBUV_FROM_SRC" == "yes"; then
@@ -62,8 +63,6 @@ cmake_clean:
 
 cmake_install:
 	@cd out/$CMAKE_BUILD_TYPE && ninja install && cd ../../
-
-install: cmake_install
 
 .PHONY: cmake_build cmake_clean cmake_install
 
