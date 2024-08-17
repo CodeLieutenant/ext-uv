@@ -1,3 +1,6 @@
+PHP_ARG_WITH(uv, Whether to include "uv" support,
+[ --with-uv[=DIR]        Include "uv" support])
+
 PHP_ARG_ENABLE(uv-debug, for uv debug support,
     [ --enable-uv-debug       Enable uv debug support])
 
@@ -14,7 +17,7 @@ PHP_ARG_ENABLE(ext-testing, enable tests running,
     [ --enable-ext-testing       Enable running php tests through cmake/ctest])
 
 PHP_ARG_ENABLE(ext-testing, enable tests running,
-    [ --enable-ext-testing       Enable running php tests through cmake/ctest], no, no)
+    [ --enable-ext-testing       Enable running php tests through cmake/ctest])
 
 PHP_ARG_ENABLE(libuv-static, for libuv static,
     [ --enable-libuv-static       Compile extension with static libuv])
