@@ -1,6 +1,3 @@
-PHP_ARG_WITH(uv, Whether to include "uv" support,
-[ --with-uv[=DIR]        Include "uv" support])
-
 PHP_ARG_ENABLE(uv-debug, for uv debug support,
     [ --enable-uv-debug       Enable uv debug support])
 
@@ -16,6 +13,9 @@ PHP_ARG_ENABLE(ubsan, for undefined behaviour sanitizer,
 PHP_ARG_ENABLE(ext-testing, enable tests running,
     [ --enable-ext-testing       Enable running php tests through cmake/ctest])
 
+PHP_ARG_ENABLE(ext-testing, enable tests running,
+    [ --enable-ext-testing       Enable running php tests through cmake/ctest], no, no)
+
 PHP_ARG_ENABLE(libuv-static, for libuv static,
     [ --enable-libuv-static       Compile extension with static libuv])
 
@@ -24,6 +24,9 @@ PHP_ARG_ENABLE(libuv-from-src, for libuv from source,
 
 PHP_ARG_WITH(libuv-version, Libuv version,
 	[ --with-libuv-version[=VERSION]        Version to fetch the LibUV sources], 1.48.0, no)
+
+PHP_ARG_WITH(libuv-version, Libuv version,
+[ --with-libuv-version[=VERSION]        Version to fetch the LibUV sources], 1.48.0, no)
 
 if test $PHP_UV != "no"; then
     PHP_NEW_EXTENSION(uv, [ ], $ext_shared)
