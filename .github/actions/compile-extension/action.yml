@@ -10,7 +10,7 @@ inputs:
     required: false
     description: "Enable debug"
     default: 'yes'
-  static-libuv:
+  static_libuv:
     required: false
     default: 'no'
     description: "Link against static libuv"
@@ -30,7 +30,7 @@ runs:
           ${{ inputs.debug == 'yes' && '--enable-debug' || '' }} \
           ${{ inputs.sanitizer == 'asan' && '--enable-asan' || '' }} \
           ${{ inputs.sanitizer == 'msan' && '--enable-msan' || '' }} \
-          ${{ inputs.static-libuv == 'yes' && '--enable-libuv-static' || '' }} \
+          ${{ inputs.static_libuv == 'yes' && '--enable-libuv-static' || '' }} \
           --enable-ext-testing
         make -j$(getconf _NPROCESSORS_ONLN)
         sudo make install
