@@ -52,3 +52,5 @@ out/
 config.h.in~
 tests/*.mem
 *.so
+libuv/
+libuv-src/

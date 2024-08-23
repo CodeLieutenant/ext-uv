@@ -9,31 +9,58 @@ on:
       - 0.3.x
 
 jobs:
+  # Adapted from https://github.com/beberlei/hdrhistogram-php
   tests:
     name: Tests (PHP ${{ matrix.php }})
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
+        libuv: ["1.48.0"]
         php:
-          - 8.3
-          - 8.2
-          - 8.1
+          - "8.1"
+          - "8.2"
+          - "8.3"
+          - "8.4"
+        phpts:
+          - "ts"
+          - "nts"
     steps:
+      - run: |
+          sudo apt update
+          sudo apt-get install -y pkg-config clang-18 clang++-18 build-essential ninja-build
+
       - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php }}
-          tools: phpize, pecl, php-config
-      - name: install deps
-        run: sudo apt-get install -y ninja-build ccache pkg-config libasan8 libubsan1 build-essential valgrind >> /dev/null
+          php-version: ${{ matrix.php }}-${{ matrix.phpts }}
+          ini-file: development
+          coverage: none
+          tools: none
+        env:
+          phpts: ${{ matrix.phpts }}
+          debug: true
+
       - name: Setup cmake
         uses: jwlawson/actions-setup-cmake@v2
         with:
-          cmake-version: '3.24'
-      - name: 'Install Libuv'
-        run: sudo ./scripts/compile-libuv.sh RelWithInfo 1.48.0 >> /dev/null
+          cmake-version: "3.24"
+
+      - uses: ./.github/actions/install-libuv
+        id: libuv
+        with:
+          version: ${{ matrix.libuv }}
+
       - name: Compile uv extension
-        run: phpize && ./configure && make && sudo make install && echo "extension = uv" >> $(php -r 'echo php_ini_loaded_file();')
+        uses: ./.github/actions/compile-extension
+        with:
+          debug: yes
+          libuv_pkgconfig: ${{ steps.libuv.outputs.pkg_config_path }}
+
       - name: Run the tests
-        run: php run-tests.php -q -j4 -p $(which php) -m --show-diff --set-timeout 120
+        run: php run-tests.php -q -j$(getconf _NPROCESSORS_ONLN) -p $(which php) --show-diff --set-timeout 120
+        env:
+          USE_ZEND_ALLOC: 0

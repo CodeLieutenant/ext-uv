@@ -34,8 +34,6 @@ if (NOT CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "")
     set(CMAKE_BUILD_TYPE "Debug")
 endif ()
 
-include(cmake/Clean.cmake)
-
 set(PHP_UV_VERSION "1.0.0-dev")
 
 set(CUSTOM_PHP_CONFIG "" CACHE STRING "Custom PHP config path")
@@ -52,6 +50,12 @@ set(LIBUV_SRC_VERSION "1.48.0" CACHE STRING "Tag for LibUV source")
 
 find_package(PHP REQUIRED)
 
+include(cmake/Clean.cmake)
+include(cmake/CPM.cmake)
+include(CTest)
+
+enable_testing()
+
 if (ENABLE_SANITIZERS)
     find_package(Sanitizers REQUIRED)
 endif ()
@@ -60,6 +64,10 @@ set(SRC_LIST src/uv.c src/php_uv.c)
 
 add_library(ext-uv SHARED)
 find_package(Libuv REQUIRED)
+
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
 
 configure_file(version.in.h version.h USE_SOURCE_PERMISSIONS NEWLINE_STYLE UNIX)
 
