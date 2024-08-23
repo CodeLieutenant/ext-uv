@@ -137,9 +137,8 @@ jobs:
             ${{ matrix.sanitizer == 'msan' && '--enable-msan' || '' }}
           make -j$(getconf _NPROCESSORS_ONLN)
           sudo make install
-          echo "extension = uv" >> $(php -r 'echo php_ini_loaded_file();')
       - name: Run the tests
-        run: php run-tests.php -q -j$(getconf _NPROCESSORS_ONLN) -p $(which php) --show-diff --set-timeout 120
+        run: php run-tests.php -d "extension=uv" -q -j$(getconf _NPROCESSORS_ONLN) -p $(pwd)/php/target/bin/php --show-diff --set-timeout 120
         env:
           CFLAGS: -fsanitize=undefined,${{ matrix.sanitizer == 'asan' && 'address' || 'memory' }} -DZEND_TRACK_ARENA_ALLOC
           LDFLAGS: -fsanitize=undefined,${{ matrix.sanitizer == 'asan' && 'address' || 'memory' }}
