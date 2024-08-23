@@ -28,7 +28,7 @@ jobs:
     steps:
       - run: |
           sudo apt-get remove --purge --autoremove 'php*'
-          sudo apt update && sudo apt-get install -y pkg-config clang build-essential
+          sudo apt update && sudo apt-get install -y pkg-config clang build-essential ninja-build
       - uses: actions/checkout@v4
         with:
           submodules: recursive
@@ -45,7 +45,6 @@ jobs:
         uses: jwlawson/actions-setup-cmake@v2
         with:
           cmake-version: "3.24"
-      - uses: seanmiddleditch/gha-setup-ninja@v5
       - name: Cache Libuv
         id: cache-libuv
         uses: actions/cache@v4
