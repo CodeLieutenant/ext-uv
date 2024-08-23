@@ -64,7 +64,7 @@ jobs:
           LD_LIBRARY_PATH: ${{ steps.libuv.outputs.install_dir }}/lib
 
       - name: Run the tests
-        run: php run-tests.php -q -j$(getconf _NPROCESSORS_ONLN) --show-diff --set-timeout 120
+        run: php run-tests.php -d "extension=uv" -q -j$(getconf _NPROCESSORS_ONLN) --show-diff --set-timeout 120
         env:
           USE_ZEND_ALLOC: 0
           LIBRARY_PATH: ${{ steps.libuv.outputs.install_dir }}/lib
