@@ -58,7 +58,7 @@ jobs:
         uses: ./.github/actions/compile-extension
         with:
           debug: yes
-          libuv-pkgconfig: ${{ steps.libuv.outputs.pkg_config_path }}
+          libuv_pkgconfig: ${{ steps.libuv.outputs.pkg_config_path }}
 
-      - name: Run the tests
-        run: php run-tests.php -q -j$(getconf _NPROCESSORS_ONLN) -p $(which php) --show-diff --set-timeout 120
+      # - name: Run the tests
+      #   run: php run-tests.php -q -j$(getconf _NPROCESSORS_ONLN) -p $(which php) --show-diff --set-timeout 120

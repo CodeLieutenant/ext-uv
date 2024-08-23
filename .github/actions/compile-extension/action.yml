@@ -14,7 +14,7 @@ inputs:
     required: false
     default: 'no'
     description: "Link against static libuv"
-  libuv-pkgconfig:
+  libuv_pkgconfig:
     required: true
     description: "PkgConfig path for Libuv"
 

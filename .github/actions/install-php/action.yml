@@ -12,10 +12,14 @@ inputs:
     required: false
     default: ''
     description: "ASAN or MSAN"
+
 outputs:
   version:
     value: ${{ steps.determine-php-version.outputs.version }}
     description: "PHP version"
+  php_binary_dir:
+    value: ${{ steps.values.outputs.php_binary_dir }}
+    description: "PHP binary directory"
 
 runs:
   using: composite
@@ -25,6 +29,7 @@ runs:
       run: |
         sudo apt-get update
         sudo apt-get remove 'php*'
+
     - name: Determine PHP version
       shell: bash
       id: determine-php-version
@@ -83,6 +88,8 @@ runs:
       env:
         CC: clang
         USE_ZEND_ALLOC: 0
+
     - name: Add PHP to the PATH
+      id: values
       shell: bash
-      run: echo "/opt/php/bin" >> "$GITHUB_PATH"
+      run: echo "php_binary_dir=/opt/php/bin" >> "$GITHUB_OUTPUT"

@@ -81,5 +81,5 @@ runs:
       id: values
       shell: bash
       run: |
-        echo "pkg_config_path=/opt/libuv/lib/pkgconfig" >> "$GITHUB_PATH"
-        echo "install_dir=/opt/libuv" >> "$GITHUB_PATH"
+        echo "pkg_config_path=/opt/libuv/lib/pkgconfig" >> "$GITHUB_OUTPUT"
+        echo "install_dir=/opt/libuv" >> "$GITHUB_OUTPUT"
