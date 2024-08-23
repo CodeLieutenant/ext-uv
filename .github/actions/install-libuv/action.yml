@@ -19,13 +19,13 @@ runs:
       uses: actions/cache@v4
       with:
         path: /opt/libuv
-        key: libuv-${{ inputs.libuv }}-${{ runner.arch }}-${{ runner.os }}${{ inputs.sanitizer }}
+        key: libuv-${{ inputs.version }}-${{ runner.arch }}-${{ runner.os }}${{ inputs.sanitizer }}
     - name: Download Libuv
       if: steps.cache-libuv.outputs.cache-hit != 'true'
       shell: bash
       run: |
         curl -L "https://github.com/libuv/libuv/archive/v${{ inputs.libuv }}.tar.gz" | tar xzf -
-        mv "libuv-${{ inputs.libuv }}" libuv-src
+        mv "libuv-${{ inputs.version }}" libuv-src
         mkdir build
     - name: 'Install Libuv'
       if: steps.cache-libuv.outputs.cache-hit != 'true'
