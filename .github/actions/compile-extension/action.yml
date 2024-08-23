@@ -1,0 +1,36 @@
+name: Compile UV extension
+description: Compile UV extension
+
+inputs:
+  sanitizer:
+    required: false
+    description: "ASAN or MSAN"
+    default: ''
+  debug:
+    required: false
+    description: "Enable debug"
+    default: 'yes'
+  static-libuv:
+    required: false
+    default: 'no'
+    description: "Link against static libuv"
+
+runs:
+  using: composite
+  steps:
+    - name: Compile uv extension
+      shell: bash
+      run: |
+        phpize
+        ./configure \
+          ${{ inputs.debug == 'yes' && '--enable-debug' || '' }} \
+          ${{ inputs.sanitizer == 'asan' && '--enable-asan' || '' }} \
+          ${{ inputs.sanitizer == 'msan' && '--enable-msan' || '' }} \
+          ${{ inputs.static-libuv == 'yes' && '--enable-libuv-static' || '' }} \
+          --enable-ext-testing
+        make -j$(getconf _NPROCESSORS_ONLN)
+        sudo make install
+      env:
+        CFLAGS: -DZEND_TRACK_ARENA_ALLOC
+        CC: clang
+        USE_ZEND_ALLOC: 0

@@ -1,0 +1,53 @@
+name: Install Libuv
+description: Install Libuv
+
+inputs:
+  version:
+    required: false
+    default: "1.48.0"
+    description: "Libuv version"
+  sanitizer:
+    required: false
+    description: "ASAN or MSAN"
+    default: ''
+
+runs:
+  using: composite
+  steps:
+    - name: Cache Libuv
+      id: cache-libuv
+      uses: actions/cache@v4
+      with:
+        path: /opt/libuv
+        key: libuv-${{ inputs.libuv }}-${{ runner.arch }}-${{ runner.os }}${{ inputs.sanitizer }}
+    - name: Download Libuv
+      if: steps.cache-libuv.outputs.cache-hit != 'true'
+      shell: bash
+      run: |
+        curl -L "https://github.com/libuv/libuv/archive/v${{ inputs.libuv }}.tar.gz" | tar xzf -
+        mv "libuv-${{ inputs.libuv }}" libuv-src
+        mkdir build
+    - name: 'Install Libuv'
+      if: steps.cache-libuv.outputs.cache-hit != 'true'
+      shell: bash
+      working-directory: /opt/libuv-src/build
+      run: |
+        cmake -G Ninja \
+          -DBUILD_TESTING=OFF \
+          -DLIBUV_BUILD_SHARED=ON \
+          -DASAN=${{ inputs.sanitizer == 'asan' && 'ON' || 'OFF' }} \
+          -DMSAN=${{ inputs.sanitizer == 'msan' && 'ON' || 'OFF' }} \
+          -DUBSAN=${{ inputs.sanitizer != '' && 'ON' || 'OFF' }} \
+          -DCMAKE_INSTALL_PREFIX="/opt/libuv" \
+          -DCMAKE_BUILD_TYPE="RelWithInfo" ..
+      env:
+        CC: clang
+    - name: Compile
+      if: steps.cache-libuv.outputs.cache-hit != 'true'
+      shell: bash
+      working-directory: /opt/libuv-src/build
+      run: sudo ninja install
+    - name: Add Libuv to the PATH
+      shell: bash
+      run: |
+        echo "PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/libuv/lib/pkgconfig" >> "$GITHUB_PATH"

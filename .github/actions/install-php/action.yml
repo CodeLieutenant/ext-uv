@@ -1,0 +1,88 @@
+name: Install PHP
+description: Install PHP
+
+inputs:
+  version:
+    required: true
+    description: "PHP version"
+  phpts:
+    required: true
+    description: "nts or ts"
+  sanitizer:
+    required: false
+    default: ''
+    description: "ASAN or MSAN"
+outputs:
+  version:
+    value: ${{ steps.determine-php-version.outputs.version }}
+    description: "PHP version"
+
+runs:
+  using: composite
+  steps:
+    - name: apt update
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get remove 'php*'
+    - name: Determine PHP version
+      shell: bash
+      id: determine-php-version
+      run: |
+        curl -fsSL 'https://www.php.net/releases/index.php?json&max=1&version=${{ inputs.php }}' -o version.json
+        echo version="$(jq -r 'keys[0]' version.json)" >> "$GITHUB_OUTPUT"
+        echo archive="$(jq -r '.[] .source[] | select(.filename |endswith(".xz")) | "https://www.php.net/distributions/" + .filename' version.json)" >> "$GITHUB_OUTPUT"
+
+    - name: Cache PHP
+      id: cache-php
+      uses: actions/cache@v4
+      with:
+        path: /opt/php
+        key: php-sanitizers-${{ inputs.sanitizer }}-${{ runner.arch }}-${{ steps.determine-php-version.outputs.version }}-${{ inputs.phpts }}
+
+    - name: Download php
+      if: steps.cache-php.outputs.cache-hit != 'true'
+      working-directory: /opt
+      shell: bash
+      run: |
+        mkdir php-src/
+        curl -fsSL "${{ steps.determine-php-version.outputs.archive }}" | tar -Jx -C php --strip-components=1
+
+    - name: Compile PHP
+      if: steps.cache-php.outputs.cache-hit != 'true'
+      shell: bash
+      working-directory: /opt/php-src
+      run: |
+        ./configure \
+          CFLAGS="-g -O0 -DZEND_TRACK_ARENA_ALLOC" \
+          --enable-debug \
+          --enable-cli \
+          ${{ inputs.phpts == 'ts' && '--enable-zts' || '' }} \
+          --enable-option-checking=fatal \
+          --disable-zend-signals \
+          --without-sqlite3 \
+          --without-pdo-sqlite \
+          --without-libxml \
+          --disable-dom \
+          --disable-simplexml \
+          --disable-xml \
+          --disable-xmlreader \
+          --disable-xmlwriter \
+          --without-pcre-jit \
+          --disable-opcache-jit \
+          --disable-cgi \
+          --disable-phpdbg \
+          --without-pear \
+          --disable-mbregex \
+          --enable-werror \
+          ${{ inputs.sanitizer == 'msan' && '--enable-memory-sanitizer' || '' }} \
+          ${{ inputs.sanitizer == 'asan' && '--enable-address-sanitizer' || '' }} \
+          --prefix="/opt/php"
+        make -j"$(getconf _NPROCESSORS_ONLN)"
+        make install
+      env:
+        CC: clang
+        USE_ZEND_ALLOC: 0
+    - name: Add PHP to the PATH
+      shell: bash
+      run: echo "/opt/php/bin" >> "$GITHUB_PATH"
