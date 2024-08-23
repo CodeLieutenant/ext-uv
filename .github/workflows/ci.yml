@@ -54,6 +54,9 @@ jobs:
         with:
           version: ${{ matrix.libuv }}
 
+      - run: |
+          echo ${{ steps.libuv.outputs.pkg_config_path }}
+
       - name: Compile uv extension
         uses: ./.github/actions/compile-extension
         with:
