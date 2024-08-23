@@ -58,7 +58,7 @@ jobs:
         uses: ./.github/actions/compile-extension
         with:
           debug: yes
-          libuv-pkgconfig: ${{  steps.libuv.outputs.pkg_config_path }}
+          libuv-pkgconfig: ${{ steps.libuv.outputs.pkg_config_path }}
 
 
       - name: Run the tests
