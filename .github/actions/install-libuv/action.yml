@@ -11,6 +11,14 @@ inputs:
     description: "ASAN or MSAN"
     default: ''
 
+outputs:
+  install-dir:
+    value: ${{ steps.values.outputs.install_dir }}
+    description: "Libuv Install Dir"
+  pkg-cofnig-path:
+    value: ${{ steps.values.outputs.pkg_config_path }}
+    description: "Libuv PkgConfig script path"
+
 runs:
   using: composite
   steps:
@@ -49,6 +57,8 @@ runs:
       working-directory: /opt/libuv-src/build
       run: sudo ninja install
     - name: Add Libuv to the PATH
+      id: values
       shell: bash
       run: |
-        echo "PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/libuv/lib/pkgconfig" >> "$GITHUB_PATH"
+        echo "pkg_config_path=/opt/libuv/lib/pkgconfig" >> "$GITHUB_PATH"
+        echo "install_dir=/opt/libuv" >> "$GITHUB_PATH"

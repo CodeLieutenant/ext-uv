@@ -46,7 +46,7 @@ runs:
       shell: bash
       run: |
         mkdir php-src/
-        curl -fsSL "${{ steps.determine-php-version.outputs.archive }}" | tar -Jx -C php --strip-components=1
+        curl -fsSL "${{ steps.determine-php-version.outputs.archive }}" | tar -Jx -C php-src --strip-components=1
 
     - name: Compile PHP
       if: steps.cache-php.outputs.cache-hit != 'true'

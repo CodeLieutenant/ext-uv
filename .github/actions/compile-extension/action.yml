@@ -14,6 +14,9 @@ inputs:
     required: false
     default: 'no'
     description: "Link against static libuv"
+  libuv-pkgconfig:
+    required: true
+    description: "PkgConfig path for Libuv"
 
 runs:
   using: composite
@@ -21,6 +24,7 @@ runs:
     - name: Compile uv extension
       shell: bash
       run: |
+        export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:${{ inputs.libuv-pkgconfig }}"
         phpize
         ./configure \
           ${{ inputs.debug == 'yes' && '--enable-debug' || '' }} \
