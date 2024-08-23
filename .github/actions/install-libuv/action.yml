@@ -12,10 +12,10 @@ inputs:
     default: ''
 
 outputs:
-  install-dir:
+  install_dir:
     value: ${{ steps.values.outputs.install_dir }}
     description: "Libuv Install Dir"
-  pkg-cofnig-path:
+  pkg_config_path:
     value: ${{ steps.values.outputs.pkg_config_path }}
     description: "Libuv PkgConfig script path"
 
