@@ -37,6 +37,9 @@ jobs:
           sudo apt update
           sudo apt-get install -y pkg-config clang libasan8 libubsan1 build-essential valgrind ninja-build
           sudo sysctl vm.mmap_rnd_bits=28
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - uses: ./.github/actions/install-php
         with:
@@ -48,10 +51,6 @@ jobs:
         with:
           version: ${{ matrix.libuv }}
           sanitizer: ${{ matrix.sanitizer }}
-
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
       - name: Setup cmake
         uses: jwlawson/actions-setup-cmake@v2
