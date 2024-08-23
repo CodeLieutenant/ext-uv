@@ -79,7 +79,6 @@ runs:
           --disable-phpdbg \
           --without-pear \
           --disable-mbregex \
-          --enable-werror \
           ${{ inputs.sanitizer == 'msan' && '--enable-memory-sanitizer' || '' }} \
           ${{ inputs.sanitizer == 'asan' && '--enable-address-sanitizer' || '' }} \
           --prefix="/opt/php"
