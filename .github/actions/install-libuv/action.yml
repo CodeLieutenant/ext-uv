@@ -24,7 +24,7 @@ runs:
       if: steps.cache-libuv.outputs.cache-hit != 'true'
       shell: bash
       run: |
-        curl -L "https://github.com/libuv/libuv/archive/v${{ inputs.libuv }}.tar.gz" | tar xzf -
+        curl -L "https://github.com/libuv/libuv/archive/v${{ inputs.version }}.tar.gz" | tar xzf -
         mv "libuv-${{ inputs.version }}" libuv-src
         mkdir build
     - name: 'Install Libuv'
