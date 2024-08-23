@@ -29,7 +29,7 @@ runs:
       shell: bash
       id: determine-php-version
       run: |
-        curl -fsSL 'https://www.php.net/releases/index.php?json&max=1&version=${{ inputs.php }}' -o version.json
+        curl -fsSL 'https://www.php.net/releases/index.php?json&max=1&version=${{ inputs.version }}' -o version.json
         echo version="$(jq -r 'keys[0]' version.json)" >> "$GITHUB_OUTPUT"
         echo archive="$(jq -r '.[] .source[] | select(.filename |endswith(".xz")) | "https://www.php.net/distributions/" + .filename' version.json)" >> "$GITHUB_OUTPUT"
 
