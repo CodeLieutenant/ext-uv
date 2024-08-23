@@ -38,6 +38,7 @@ runs:
     - name: Install Deps
       if: steps.cache-libuv.outputs.cache-hit != 'true'
       shell: bash
+      working-directory: /opt
       run: |
         sudo apt-get update
         sudo apt-get install -y pkg-config clang build-essential ninja-build
