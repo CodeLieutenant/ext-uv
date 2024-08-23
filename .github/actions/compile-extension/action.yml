@@ -24,7 +24,7 @@ runs:
     - name: Compile uv extension
       shell: bash
       run: |
-        export PKG_CONFIG_PATH="$(pkg-config --variable pc_path pkg-config):${{ inputs.libuv-pkgconfig }}"
+        export PKG_CONFIG_PATH="$(pkg-config --variable pc_path pkg-config):${{ inputs.libuv_pkgconfig }}"
         phpize
         ./configure \
           ${{ inputs.debug == 'yes' && '--enable-debug' || '' }} \
