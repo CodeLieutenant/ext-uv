@@ -4,19 +4,19 @@ description: Compile UV extension
 inputs:
   sanitizer:
     required: false
-    description: "ASAN or MSAN"
+    description: 'ASAN or MSAN'
     default: ''
   debug:
     required: false
-    description: "Enable debug"
+    description: 'Enable debug'
     default: 'yes'
   static_libuv:
     required: false
     default: 'no'
-    description: "Link against static libuv"
+    description: 'Link against static libuv'
   libuv_pkgconfig:
     required: true
-    description: "PkgConfig path for Libuv"
+    description: 'PkgConfig path for Libuv'
 
 runs:
   using: composite

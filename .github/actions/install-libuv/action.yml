@@ -4,20 +4,20 @@ description: Install Libuv
 inputs:
   version:
     required: false
-    default: "1.48.0"
-    description: "Libuv version"
+    default: '1.48.0'
+    description: 'Libuv version'
   sanitizer:
     required: false
-    description: "ASAN or MSAN"
+    description: 'ASAN or MSAN'
     default: ''
 
 outputs:
   install_dir:
     value: ${{ steps.values.outputs.install_dir }}
-    description: "Libuv Install Dir"
+    description: 'Libuv Install Dir'
   pkg_config_path:
     value: ${{ steps.values.outputs.pkg_config_path }}
-    description: "Libuv PkgConfig script path"
+    description: 'Libuv PkgConfig script path'
 
 runs:
   using: composite
@@ -33,7 +33,7 @@ runs:
       if: steps.cache-libuv.outputs.cache-hit != 'true'
       uses: jwlawson/actions-setup-cmake@v2
       with:
-        cmake-version: "3.24"
+        cmake-version: '3.24'
 
     - name: Install Deps
       if: steps.cache-libuv.outputs.cache-hit != 'true'

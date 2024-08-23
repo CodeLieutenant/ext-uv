@@ -4,22 +4,21 @@ description: Install PHP
 inputs:
   version:
     required: true
-    description: "PHP version"
+    description: 'PHP version'
   phpts:
     required: true
-    description: "nts or ts"
+    description: 'nts or ts'
   sanitizer:
     required: false
     default: ''
-    description: "ASAN or MSAN"
-
+    description: 'ASAN or MSAN'
 outputs:
   version:
     value: ${{ steps.determine-php-version.outputs.version }}
-    description: "PHP version"
+    description: 'PHP version'
   php_binary_dir:
     value: ${{ steps.values.outputs.php_binary_dir }}
-    description: "PHP binary directory"
+    description: 'PHP binary directory'
 
 runs:
   using: composite
@@ -29,7 +28,6 @@ runs:
       run: |
         sudo apt-get update
         sudo apt-get remove 'php*'
-
     - name: Determine PHP version
       shell: bash
       id: determine-php-version
