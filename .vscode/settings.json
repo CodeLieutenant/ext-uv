@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*main.yml": "ansible",
+        "uv_arginfo.h": "c"
+    }
+}
