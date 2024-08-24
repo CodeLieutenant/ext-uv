@@ -60,7 +60,7 @@ if (ENABLE_SANITIZERS)
     find_package(Sanitizers REQUIRED)
 endif ()
 
-set(SRC_LIST src/uv.c src/php_uv.c)
+set(SRC_LIST src/php_uv.c)
 
 add_library(ext-uv SHARED)
 find_package(Libuv REQUIRED)
