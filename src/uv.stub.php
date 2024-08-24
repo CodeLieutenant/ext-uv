@@ -3,6 +3,7 @@
 /**
  * @generate-class-entries
  * @generate-function-entries
+ * @generate-legacy-arginfo 80100|80200
  */
 
 /**
@@ -823,7 +824,6 @@ abstract class UV
 
     /**
      * The unknown handle
-     * @internal
      * @var int
      * @cvalue UV_UNKNOWN_HANDLE
      */
@@ -831,7 +831,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_ASYNC
      */
@@ -839,7 +838,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_CHECK
      */
@@ -848,7 +846,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_FS_EVENT
      */
@@ -856,7 +853,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_FS_POLL
      */
@@ -864,7 +860,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_HANDLE
      */
@@ -872,7 +867,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_IDLE
      */
@@ -880,7 +874,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_PIPE
      */
@@ -889,7 +882,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_POLL
      */
@@ -897,7 +889,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_PREPARE
      */
@@ -905,7 +896,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_PROCESS
      */
@@ -913,7 +903,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_STREAM
      */
@@ -921,7 +910,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_TCP
      */
@@ -929,7 +917,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_TIMER
      */
@@ -937,7 +924,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_TTY
      */
@@ -945,7 +931,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_UDP
      */
@@ -953,7 +938,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_SIGNAL
      */
@@ -961,7 +945,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue UV_FILE
      */
@@ -969,7 +952,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_WORK
      */
@@ -977,7 +959,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_ADDRINFO
      */
@@ -985,7 +966,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue IS_UV_LOOP
      */
@@ -993,7 +973,6 @@ abstract class UV
 
     /**
      * The async handle
-     * @internal
      * @var int
      * @cvalue UV_HANDLE_TYPE_MAX
      */
@@ -1435,7 +1414,158 @@ function uv_udp_getsockname(UVUdp $uv_sock): array {}
 
 function uv_resident_set_memory(): int {}
 
+
+#if PHP_VERSION_ID >= 80300
+
+enum UVHandleType: int
+{
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_ASYNC
+     */
+    case IS_UV_ASYNC = UV::IS_UV_ASYNC;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_CHECK
+     */
+    case IS_UV_CHECK = UV::IS_UV_CHECK;
+
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_FS_EVENT
+     */
+    case IS_UV_FS_EVENT = UV::IS_UV_FS_EVENT;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_FS_POLL
+     */
+    case IS_UV_FS_POLL = UV::IS_UV_FS_POLL;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_HANDLE
+     */
+    case IS_UV_HANDLE = UV::IS_UV_HANDLE;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_IDLE
+     */
+    case IS_UV_IDLE = UV::IS_UV_IDLE;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_PIPE
+     */
+    case IS_UV_PIPE = UV::IS_UV_PIPE;
+
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_POLL
+     */
+    case IS_UV_POLL = UV::IS_UV_POLL;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_PREPARE
+     */
+    case IS_UV_PREPARE = UV::IS_UV_PREPARE;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_PROCESS
+     */
+    case IS_UV_PROCESS = UV::IS_UV_PROCESS;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_STREAM
+     */
+    case IS_UV_STREAM = UV::IS_UV_STREAM;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_TCP
+     */
+    case IS_UV_TCP = UV::IS_UV_TCP;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_TIMER
+     */
+    case IS_UV_TIMER = UV::IS_UV_TIMER;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_TTY
+     */
+    case IS_UV_TTY = UV::IS_UV_TTY;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_UDP
+     */
+    case IS_UV_UDP = UV::IS_UV_UDP;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_SIGNAL
+     */
+    case IS_UV_SIGNAL = UV::IS_UV_SIGNAL;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue UV_FILE
+     */
+    case UV_FILE = UV::UV_FILE;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_WORK
+     */
+    case IS_UV_WORK = UV::IS_UV_WORK;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_ADDRINFO
+     */
+    case IS_UV_ADDRINFO = UV::IS_UV_ADDRINFO;
+
+    /**
+     * The async handle
+     * @var int
+     * @cvalue IS_UV_LOOP
+     */
+    case IS_UV_LOOP = UV::IS_UV_LOOP;
+}
+
+#endif
+
 function uv_handle_get_type(UV $uv): int {}
+
 
 function uv_tcp_open(UVTcp $handle, int $tcpfd): int|false {}
 

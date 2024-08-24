@@ -14,6 +14,9 @@
  */
 
 #include <php.h>
+#if PHP_VERSION_ID >= 80300
+#include <Zend/zend_enum.h>
+#endif
 #include <ext/standard/info.h>
 #include <Zend/zend_smart_str.h>
 
@@ -337,6 +340,11 @@ static zend_class_entry *uv_lock_ce;
 static zend_object_handlers uv_lock_handlers;
 
 static zend_class_entry *uv_stdio_ce;
+
+#if PHP_VERSION_ID >= 80300
+static zend_class_entry *uv_handle_type_ce;
+#endif
+
 static zend_object_handlers uv_stdio_handlers;
 
 
@@ -2770,6 +2778,10 @@ PHP_MINIT_FUNCTION(uv)
     memcpy(&uv_stdio_handlers, &uv_default_handlers, sizeof(zend_object_handlers));
     uv_stdio_handlers.dtor_obj = destruct_uv_stdio;
     uv_stdio_handlers.get_gc = php_uv_stdio_get_gc;
+
+#if PHP_VERSION_ID >= 80300
+    uv_handle_type_ce = register_class_UVHandleType();
+#endif
 
 #if !defined(PHP_WIN32) && !(defined(HAVE_SOCKETS) && !defined(COMPILE_DL_SOCKETS))
 	{

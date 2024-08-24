@@ -1,5 +1,5 @@
 /* This is a generated file, edit the .stub.php file instead.
- * Stub hash: d32a054b8e304ac571eb27f2864e51380e48b7d4 */
+ * Stub hash: ed664c9641e7036ee4b9344eafac1a3e0abacc83 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_uv_loop_new, 0, 0, UVLoop, 0)
 ZEND_END_ARG_INFO()
@@ -1095,6 +1095,13 @@ static const zend_function_entry class_UVWork_methods[] = {
 	ZEND_FE_END
 };
 
+
+#if PHP_VERSION_ID >= 80300
+static const zend_function_entry class_UVHandleType_methods[] = {
+	ZEND_FE_END
+};
+#endif
+
 static zend_class_entry *register_class_UV(void)
 {
 	zend_class_entry ce, *class_entry;
@@ -1106,710 +1113,1178 @@ static zend_class_entry *register_class_UV(void)
 	zval const_READABLE_value;
 	ZVAL_LONG(&const_READABLE_value, UV_READABLE);
 	zend_string *const_READABLE_name = zend_string_init_interned("READABLE", sizeof("READABLE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_READABLE_name, &const_READABLE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_READABLE_name, &const_READABLE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_READABLE_name);
 
 	zval const_WRITABLE_value;
 	ZVAL_LONG(&const_WRITABLE_value, UV_WRITABLE);
 	zend_string *const_WRITABLE_name = zend_string_init_interned("WRITABLE", sizeof("WRITABLE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_WRITABLE_name, &const_WRITABLE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_WRITABLE_name, &const_WRITABLE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_WRITABLE_name);
 
 	zval const_RUN_DEFAULT_value;
 	ZVAL_LONG(&const_RUN_DEFAULT_value, UV_WRITABLE);
 	zend_string *const_RUN_DEFAULT_name = zend_string_init_interned("RUN_DEFAULT", sizeof("RUN_DEFAULT") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_RUN_DEFAULT_name, &const_RUN_DEFAULT_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_RUN_DEFAULT_name, &const_RUN_DEFAULT_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_RUN_DEFAULT_name);
 
 	zval const_RUN_ONCE_value;
 	ZVAL_LONG(&const_RUN_ONCE_value, UV_RUN_DEFAULT);
 	zend_string *const_RUN_ONCE_name = zend_string_init_interned("RUN_ONCE", sizeof("RUN_ONCE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_RUN_ONCE_name, &const_RUN_ONCE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_RUN_ONCE_name, &const_RUN_ONCE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_RUN_ONCE_name);
 
 	zval const_RUN_NOWAIT_value;
 	ZVAL_LONG(&const_RUN_NOWAIT_value, UV_RUN_NOWAIT);
 	zend_string *const_RUN_NOWAIT_name = zend_string_init_interned("RUN_NOWAIT", sizeof("RUN_NOWAIT") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_RUN_NOWAIT_name, &const_RUN_NOWAIT_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_RUN_NOWAIT_name, &const_RUN_NOWAIT_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_RUN_NOWAIT_name);
 
 	zval const_CHANGE_value;
 	ZVAL_LONG(&const_CHANGE_value, UV_CHANGE);
 	zend_string *const_CHANGE_name = zend_string_init_interned("CHANGE", sizeof("CHANGE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_CHANGE_name, &const_CHANGE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_CHANGE_name, &const_CHANGE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_CHANGE_name);
 
 	zval const_RENAME_value;
 	ZVAL_LONG(&const_RENAME_value, UV_RENAME);
 	zend_string *const_RENAME_name = zend_string_init_interned("RENAME", sizeof("RENAME") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_RENAME_name, &const_RENAME_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_RENAME_name, &const_RENAME_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_RENAME_name);
 
 	zval const_O_RDONLY_value;
 	ZVAL_LONG(&const_O_RDONLY_value, O_RDONLY);
 	zend_string *const_O_RDONLY_name = zend_string_init_interned("O_RDONLY", sizeof("O_RDONLY") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_O_RDONLY_name, &const_O_RDONLY_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_O_RDONLY_name, &const_O_RDONLY_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_O_RDONLY_name);
 
 	zval const_O_WRONLY_value;
 	ZVAL_LONG(&const_O_WRONLY_value, O_WRONLY);
 	zend_string *const_O_WRONLY_name = zend_string_init_interned("O_WRONLY", sizeof("O_WRONLY") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_O_WRONLY_name, &const_O_WRONLY_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_O_WRONLY_name, &const_O_WRONLY_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_O_WRONLY_name);
 
 	zval const_O_RDWR_value;
 	ZVAL_LONG(&const_O_RDWR_value, O_RDWR);
 	zend_string *const_O_RDWR_name = zend_string_init_interned("O_RDWR", sizeof("O_RDWR") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_O_RDWR_name, &const_O_RDWR_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_O_RDWR_name, &const_O_RDWR_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_O_RDWR_name);
 
 	zval const_O_CREAT_value;
 	ZVAL_LONG(&const_O_CREAT_value, O_CREAT);
 	zend_string *const_O_CREAT_name = zend_string_init_interned("O_CREAT", sizeof("O_CREAT") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_O_CREAT_name, &const_O_CREAT_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_O_CREAT_name, &const_O_CREAT_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_O_CREAT_name);
 
 	zval const_O_EXCL_value;
 	ZVAL_LONG(&const_O_EXCL_value, O_EXCL);
 	zend_string *const_O_EXCL_name = zend_string_init_interned("O_EXCL", sizeof("O_EXCL") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_O_EXCL_name, &const_O_EXCL_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_O_EXCL_name, &const_O_EXCL_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_O_EXCL_name);
 
 	zval const_O_TRUNC_value;
 	ZVAL_LONG(&const_O_TRUNC_value, O_TRUNC);
 	zend_string *const_O_TRUNC_name = zend_string_init_interned("O_TRUNC", sizeof("O_TRUNC") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_O_TRUNC_name, &const_O_TRUNC_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_O_TRUNC_name, &const_O_TRUNC_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_O_TRUNC_name);
 
 	zval const_O_APPEND_value;
 	ZVAL_LONG(&const_O_APPEND_value, O_APPEND);
 	zend_string *const_O_APPEND_name = zend_string_init_interned("O_APPEND", sizeof("O_APPEND") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_O_APPEND_name, &const_O_APPEND_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_O_APPEND_name, &const_O_APPEND_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_O_APPEND_name);
 
 	zval const_O_NOCTTY_value;
 	ZVAL_LONG(&const_O_NOCTTY_value, O_NOCTTY);
 	zend_string *const_O_NOCTTY_name = zend_string_init_interned("O_NOCTTY", sizeof("O_NOCTTY") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_O_NOCTTY_name, &const_O_NOCTTY_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_O_NOCTTY_name, &const_O_NOCTTY_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_O_NOCTTY_name);
 
 	zval const_S_IRWXU_value;
 	ZVAL_LONG(&const_S_IRWXU_value, S_IRWXU);
 	zend_string *const_S_IRWXU_name = zend_string_init_interned("S_IRWXU", sizeof("S_IRWXU") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IRWXU_name, &const_S_IRWXU_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IRWXU_name, &const_S_IRWXU_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IRWXU_name);
 
 	zval const_S_IRUSR_value;
 	ZVAL_LONG(&const_S_IRUSR_value, S_IRUSR);
 	zend_string *const_S_IRUSR_name = zend_string_init_interned("S_IRUSR", sizeof("S_IRUSR") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IRUSR_name, &const_S_IRUSR_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IRUSR_name, &const_S_IRUSR_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IRUSR_name);
 
 	zval const_S_IWUSR_value;
 	ZVAL_LONG(&const_S_IWUSR_value, S_IWUSR);
 	zend_string *const_S_IWUSR_name = zend_string_init_interned("S_IWUSR", sizeof("S_IWUSR") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IWUSR_name, &const_S_IWUSR_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IWUSR_name, &const_S_IWUSR_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IWUSR_name);
 
 	zval const_S_IXUSR_value;
 	ZVAL_LONG(&const_S_IXUSR_value, S_IXUSR);
 	zend_string *const_S_IXUSR_name = zend_string_init_interned("S_IXUSR", sizeof("S_IXUSR") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IXUSR_name, &const_S_IXUSR_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IXUSR_name, &const_S_IXUSR_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IXUSR_name);
 
 	zval const_S_IRWXG_value;
 	ZVAL_LONG(&const_S_IRWXG_value, S_IRWXG);
 	zend_string *const_S_IRWXG_name = zend_string_init_interned("S_IRWXG", sizeof("S_IRWXG") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IRWXG_name, &const_S_IRWXG_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IRWXG_name, &const_S_IRWXG_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IRWXG_name);
 
 	zval const_S_IRGRP_value;
 	ZVAL_LONG(&const_S_IRGRP_value, S_IRGRP);
 	zend_string *const_S_IRGRP_name = zend_string_init_interned("S_IRGRP", sizeof("S_IRGRP") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IRGRP_name, &const_S_IRGRP_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IRGRP_name, &const_S_IRGRP_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IRGRP_name);
 
 	zval const_S_IWGRP_value;
 	ZVAL_LONG(&const_S_IWGRP_value, S_IWGRP);
 	zend_string *const_S_IWGRP_name = zend_string_init_interned("S_IWGRP", sizeof("S_IWGRP") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IWGRP_name, &const_S_IWGRP_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IWGRP_name, &const_S_IWGRP_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IWGRP_name);
 
 	zval const_S_IXGRP_value;
 	ZVAL_LONG(&const_S_IXGRP_value, S_IXGRP);
 	zend_string *const_S_IXGRP_name = zend_string_init_interned("S_IXGRP", sizeof("S_IXGRP") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IXGRP_name, &const_S_IXGRP_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IXGRP_name, &const_S_IXGRP_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IXGRP_name);
 
 	zval const_S_IRWXO_value;
 	ZVAL_LONG(&const_S_IRWXO_value, S_IRWXO);
 	zend_string *const_S_IRWXO_name = zend_string_init_interned("S_IRWXO", sizeof("S_IRWXO") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IRWXO_name, &const_S_IRWXO_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IRWXO_name, &const_S_IRWXO_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IRWXO_name);
 
 	zval const_S_IROTH_value;
 	ZVAL_LONG(&const_S_IROTH_value, S_IROTH);
 	zend_string *const_S_IROTH_name = zend_string_init_interned("S_IROTH", sizeof("S_IROTH") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IROTH_name, &const_S_IROTH_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IROTH_name, &const_S_IROTH_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IROTH_name);
 
 	zval const_S_IWOTH_value;
 	ZVAL_LONG(&const_S_IWOTH_value, S_IWOTH);
 	zend_string *const_S_IWOTH_name = zend_string_init_interned("S_IWOTH", sizeof("S_IWOTH") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IWOTH_name, &const_S_IWOTH_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IWOTH_name, &const_S_IWOTH_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IWOTH_name);
 
 	zval const_S_IXOTH_value;
 	ZVAL_LONG(&const_S_IXOTH_value, S_IXOTH);
 	zend_string *const_S_IXOTH_name = zend_string_init_interned("S_IXOTH", sizeof("S_IXOTH") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IXOTH_name, &const_S_IXOTH_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IXOTH_name, &const_S_IXOTH_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IXOTH_name);
 
 	zval const_S_IFMT_value;
 	ZVAL_LONG(&const_S_IFMT_value, S_IFMT);
 	zend_string *const_S_IFMT_name = zend_string_init_interned("S_IFMT", sizeof("S_IFMT") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IFMT_name, &const_S_IFMT_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IFMT_name, &const_S_IFMT_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IFMT_name);
 
 	zval const_S_IFBLK_value;
 	ZVAL_LONG(&const_S_IFBLK_value, S_IFBLK);
 	zend_string *const_S_IFBLK_name = zend_string_init_interned("S_IFBLK", sizeof("S_IFBLK") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IFBLK_name, &const_S_IFBLK_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IFBLK_name, &const_S_IFBLK_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IFBLK_name);
 
 	zval const_S_IFCHR_value;
 	ZVAL_LONG(&const_S_IFCHR_value, S_IFCHR);
 	zend_string *const_S_IFCHR_name = zend_string_init_interned("S_IFCHR", sizeof("S_IFCHR") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IFCHR_name, &const_S_IFCHR_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IFCHR_name, &const_S_IFCHR_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IFCHR_name);
 
 	zval const_S_IFIFO_value;
 	ZVAL_LONG(&const_S_IFIFO_value, S_IFIFO);
 	zend_string *const_S_IFIFO_name = zend_string_init_interned("S_IFIFO", sizeof("S_IFIFO") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IFIFO_name, &const_S_IFIFO_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IFIFO_name, &const_S_IFIFO_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IFIFO_name);
 
 	zval const_S_IFREG_value;
 	ZVAL_LONG(&const_S_IFREG_value, S_IFREG);
 	zend_string *const_S_IFREG_name = zend_string_init_interned("S_IFREG", sizeof("S_IFREG") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IFREG_name, &const_S_IFREG_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IFREG_name, &const_S_IFREG_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IFREG_name);
 
 	zval const_S_IFDIR_value;
 	ZVAL_LONG(&const_S_IFDIR_value, S_IFDIR);
 	zend_string *const_S_IFDIR_name = zend_string_init_interned("S_IFDIR", sizeof("S_IFDIR") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IFDIR_name, &const_S_IFDIR_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IFDIR_name, &const_S_IFDIR_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IFDIR_name);
 
 	zval const_S_IFLNK_value;
 	ZVAL_LONG(&const_S_IFLNK_value, S_IFLNK);
 	zend_string *const_S_IFLNK_name = zend_string_init_interned("S_IFLNK", sizeof("S_IFLNK") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IFLNK_name, &const_S_IFLNK_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IFLNK_name, &const_S_IFLNK_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IFLNK_name);
 
 	zval const_S_IFSOCK_value;
 	ZVAL_LONG(&const_S_IFSOCK_value, S_IFSOCK);
 	zend_string *const_S_IFSOCK_name = zend_string_init_interned("S_IFSOCK", sizeof("S_IFSOCK") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_S_IFSOCK_name, &const_S_IFSOCK_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_S_IFSOCK_name, &const_S_IFSOCK_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_S_IFSOCK_name);
 
 	zval const_AF_INET_value;
 	ZVAL_LONG(&const_AF_INET_value, AF_INET);
 	zend_string *const_AF_INET_name = zend_string_init_interned("AF_INET", sizeof("AF_INET") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_AF_INET_name, &const_AF_INET_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_AF_INET_name, &const_AF_INET_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_AF_INET_name);
 
 	zval const_AF_INET6_value;
 	ZVAL_LONG(&const_AF_INET6_value, AF_INET6);
 	zend_string *const_AF_INET6_name = zend_string_init_interned("AF_INET6", sizeof("AF_INET6") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_AF_INET6_name, &const_AF_INET6_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_AF_INET6_name, &const_AF_INET6_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_AF_INET6_name);
 
 	zval const_AF_UNSPEC_value;
 	ZVAL_LONG(&const_AF_UNSPEC_value, AF_UNSPEC);
 	zend_string *const_AF_UNSPEC_name = zend_string_init_interned("AF_UNSPEC", sizeof("AF_UNSPEC") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_AF_UNSPEC_name, &const_AF_UNSPEC_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_AF_UNSPEC_name, &const_AF_UNSPEC_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_AF_UNSPEC_name);
 
 	zval const_LEAVE_GROUP_value;
 	ZVAL_LONG(&const_LEAVE_GROUP_value, UV_LEAVE_GROUP);
 	zend_string *const_LEAVE_GROUP_name = zend_string_init_interned("LEAVE_GROUP", sizeof("LEAVE_GROUP") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_LEAVE_GROUP_name, &const_LEAVE_GROUP_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_LEAVE_GROUP_name, &const_LEAVE_GROUP_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_LEAVE_GROUP_name);
 
 	zval const_JOIN_GROUP_value;
 	ZVAL_LONG(&const_JOIN_GROUP_value, UV_JOIN_GROUP);
 	zend_string *const_JOIN_GROUP_name = zend_string_init_interned("JOIN_GROUP", sizeof("JOIN_GROUP") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_JOIN_GROUP_name, &const_JOIN_GROUP_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_JOIN_GROUP_name, &const_JOIN_GROUP_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_JOIN_GROUP_name);
 
 	zval const_IGNORE_value;
 	ZVAL_LONG(&const_IGNORE_value, UV_IGNORE);
 	zend_string *const_IGNORE_name = zend_string_init_interned("IGNORE", sizeof("IGNORE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IGNORE_name, &const_IGNORE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IGNORE_name, &const_IGNORE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IGNORE_name);
 
 	zval const_CREATE_PIPE_value;
 	ZVAL_LONG(&const_CREATE_PIPE_value, UV_CREATE_PIPE);
 	zend_string *const_CREATE_PIPE_name = zend_string_init_interned("CREATE_PIPE", sizeof("CREATE_PIPE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_CREATE_PIPE_name, &const_CREATE_PIPE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_CREATE_PIPE_name, &const_CREATE_PIPE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_CREATE_PIPE_name);
 
 	zval const_INHERIT_FD_value;
 	ZVAL_LONG(&const_INHERIT_FD_value, UV_INHERIT_FD);
 	zend_string *const_INHERIT_FD_name = zend_string_init_interned("INHERIT_FD", sizeof("INHERIT_FD") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_INHERIT_FD_name, &const_INHERIT_FD_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_INHERIT_FD_name, &const_INHERIT_FD_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_INHERIT_FD_name);
 
 	zval const_INHERIT_STREAM_value;
 	ZVAL_LONG(&const_INHERIT_STREAM_value, UV_INHERIT_STREAM);
 	zend_string *const_INHERIT_STREAM_name = zend_string_init_interned("INHERIT_STREAM", sizeof("INHERIT_STREAM") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_INHERIT_STREAM_name, &const_INHERIT_STREAM_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_INHERIT_STREAM_name, &const_INHERIT_STREAM_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_INHERIT_STREAM_name);
 
 	zval const_READABLE_PIPE_value;
 	ZVAL_LONG(&const_READABLE_PIPE_value, UV_READABLE_PIPE);
 	zend_string *const_READABLE_PIPE_name = zend_string_init_interned("READABLE_PIPE", sizeof("READABLE_PIPE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_READABLE_PIPE_name, &const_READABLE_PIPE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_READABLE_PIPE_name, &const_READABLE_PIPE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_READABLE_PIPE_name);
 
 	zval const_WRITABLE_PIPE_value;
 	ZVAL_LONG(&const_WRITABLE_PIPE_value, UV_WRITABLE_PIPE);
 	zend_string *const_WRITABLE_PIPE_name = zend_string_init_interned("WRITABLE_PIPE", sizeof("WRITABLE_PIPE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_WRITABLE_PIPE_name, &const_WRITABLE_PIPE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_WRITABLE_PIPE_name, &const_WRITABLE_PIPE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_WRITABLE_PIPE_name);
 
 	zval const_UV_INHERIT_FD_value;
 	ZVAL_LONG(&const_UV_INHERIT_FD_value, UV_INHERIT_FD);
 	zend_string *const_UV_INHERIT_FD_name = zend_string_init_interned("UV_INHERIT_FD", sizeof("UV_INHERIT_FD") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_UV_INHERIT_FD_name, &const_UV_INHERIT_FD_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_UV_INHERIT_FD_name, &const_UV_INHERIT_FD_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_UV_INHERIT_FD_name);
 
 	zval const_OVERLAPPED_PIPE_value;
 	ZVAL_LONG(&const_OVERLAPPED_PIPE_value, UV_OVERLAPPED_PIPE);
 	zend_string *const_OVERLAPPED_PIPE_name = zend_string_init_interned("OVERLAPPED_PIPE", sizeof("OVERLAPPED_PIPE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_OVERLAPPED_PIPE_name, &const_OVERLAPPED_PIPE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_OVERLAPPED_PIPE_name, &const_OVERLAPPED_PIPE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_OVERLAPPED_PIPE_name);
 
 	zval const_UDP_IPV6ONLY_value;
 	ZVAL_LONG(&const_UDP_IPV6ONLY_value, UV_UDP_IPV6ONLY);
 	zend_string *const_UDP_IPV6ONLY_name = zend_string_init_interned("UDP_IPV6ONLY", sizeof("UDP_IPV6ONLY") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_UDP_IPV6ONLY_name, &const_UDP_IPV6ONLY_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_UDP_IPV6ONLY_name, &const_UDP_IPV6ONLY_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_UDP_IPV6ONLY_name);
 
 	zval const_UDP_PARTIAL_value;
 	ZVAL_LONG(&const_UDP_PARTIAL_value, UV_UDP_PARTIAL);
 	zend_string *const_UDP_PARTIAL_name = zend_string_init_interned("UDP_PARTIAL", sizeof("UDP_PARTIAL") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_UDP_PARTIAL_name, &const_UDP_PARTIAL_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_UDP_PARTIAL_name, &const_UDP_PARTIAL_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_UDP_PARTIAL_name);
 
 	zval const_PROCESS_SETUID_value;
 	ZVAL_LONG(&const_PROCESS_SETUID_value, UV_PROCESS_SETUID);
 	zend_string *const_PROCESS_SETUID_name = zend_string_init_interned("PROCESS_SETUID", sizeof("PROCESS_SETUID") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_PROCESS_SETUID_name, &const_PROCESS_SETUID_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_PROCESS_SETUID_name, &const_PROCESS_SETUID_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_PROCESS_SETUID_name);
 	ZEND_ASSERT(UV_PROCESS_SETUID == 1);
 
 	zval const_PROCESS_SETGID_value;
 	ZVAL_LONG(&const_PROCESS_SETGID_value, UV_PROCESS_SETGID);
 	zend_string *const_PROCESS_SETGID_name = zend_string_init_interned("PROCESS_SETGID", sizeof("PROCESS_SETGID") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_PROCESS_SETGID_name, &const_PROCESS_SETGID_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_PROCESS_SETGID_name, &const_PROCESS_SETGID_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_PROCESS_SETGID_name);
 	ZEND_ASSERT(UV_PROCESS_SETGID == 2);
 
 	zval const_PROCESS_WINDOWS_VERBATIM_ARGUMENTS_value;
 	ZVAL_LONG(&const_PROCESS_WINDOWS_VERBATIM_ARGUMENTS_value, UV_PROCESS_WINDOWS_VERBATIM_ARGUMENTS);
 	zend_string *const_PROCESS_WINDOWS_VERBATIM_ARGUMENTS_name = zend_string_init_interned("PROCESS_WINDOWS_VERBATIM_ARGUMENTS", sizeof("PROCESS_WINDOWS_VERBATIM_ARGUMENTS") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_PROCESS_WINDOWS_VERBATIM_ARGUMENTS_name, &const_PROCESS_WINDOWS_VERBATIM_ARGUMENTS_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_PROCESS_WINDOWS_VERBATIM_ARGUMENTS_name, &const_PROCESS_WINDOWS_VERBATIM_ARGUMENTS_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_PROCESS_WINDOWS_VERBATIM_ARGUMENTS_name);
 	ZEND_ASSERT(UV_PROCESS_WINDOWS_VERBATIM_ARGUMENTS == 4);
 
 	zval const_PROCESS_DETACHED_value;
 	ZVAL_LONG(&const_PROCESS_DETACHED_value, UV_PROCESS_DETACHED);
 	zend_string *const_PROCESS_DETACHED_name = zend_string_init_interned("PROCESS_DETACHED", sizeof("PROCESS_DETACHED") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_PROCESS_DETACHED_name, &const_PROCESS_DETACHED_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_PROCESS_DETACHED_name, &const_PROCESS_DETACHED_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_PROCESS_DETACHED_name);
 	ZEND_ASSERT(UV_PROCESS_DETACHED == 8);
 
 	zval const_PROCESS_WINDOWS_HIDE_value;
 	ZVAL_LONG(&const_PROCESS_WINDOWS_HIDE_value, UV_PROCESS_WINDOWS_HIDE);
 	zend_string *const_PROCESS_WINDOWS_HIDE_name = zend_string_init_interned("PROCESS_WINDOWS_HIDE", sizeof("PROCESS_WINDOWS_HIDE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_PROCESS_WINDOWS_HIDE_name, &const_PROCESS_WINDOWS_HIDE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_PROCESS_WINDOWS_HIDE_name, &const_PROCESS_WINDOWS_HIDE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_PROCESS_WINDOWS_HIDE_name);
 	ZEND_ASSERT(UV_PROCESS_WINDOWS_HIDE == 16);
 
 	zval const_PROCESS_WINDOWS_HIDE_CONSOLE_value;
 	ZVAL_LONG(&const_PROCESS_WINDOWS_HIDE_CONSOLE_value, UV_PROCESS_WINDOWS_HIDE_CONSOLE);
 	zend_string *const_PROCESS_WINDOWS_HIDE_CONSOLE_name = zend_string_init_interned("PROCESS_WINDOWS_HIDE_CONSOLE", sizeof("PROCESS_WINDOWS_HIDE_CONSOLE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_PROCESS_WINDOWS_HIDE_CONSOLE_name, &const_PROCESS_WINDOWS_HIDE_CONSOLE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_PROCESS_WINDOWS_HIDE_CONSOLE_name, &const_PROCESS_WINDOWS_HIDE_CONSOLE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_PROCESS_WINDOWS_HIDE_CONSOLE_name);
 	ZEND_ASSERT(UV_PROCESS_WINDOWS_HIDE_CONSOLE == 32);
 
 	zval const_PROCESS_WINDOWS_HIDE_GUI_value;
 	ZVAL_LONG(&const_PROCESS_WINDOWS_HIDE_GUI_value, UV_PROCESS_WINDOWS_HIDE_GUI);
 	zend_string *const_PROCESS_WINDOWS_HIDE_GUI_name = zend_string_init_interned("PROCESS_WINDOWS_HIDE_GUI", sizeof("PROCESS_WINDOWS_HIDE_GUI") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_PROCESS_WINDOWS_HIDE_GUI_name, &const_PROCESS_WINDOWS_HIDE_GUI_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_PROCESS_WINDOWS_HIDE_GUI_name, &const_PROCESS_WINDOWS_HIDE_GUI_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_PROCESS_WINDOWS_HIDE_GUI_name);
 	ZEND_ASSERT(UV_PROCESS_WINDOWS_HIDE_GUI == 64);
 
 	zval const_TTY_MODE_NORMAL_value;
 	ZVAL_LONG(&const_TTY_MODE_NORMAL_value, UV_TTY_MODE_NORMAL);
 	zend_string *const_TTY_MODE_NORMAL_name = zend_string_init_interned("TTY_MODE_NORMAL", sizeof("TTY_MODE_NORMAL") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_TTY_MODE_NORMAL_name, &const_TTY_MODE_NORMAL_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_TTY_MODE_NORMAL_name, &const_TTY_MODE_NORMAL_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_TTY_MODE_NORMAL_name);
 
 	zval const_TTY_MODE_RAW_value;
 	ZVAL_LONG(&const_TTY_MODE_RAW_value, UV_TTY_MODE_RAW);
 	zend_string *const_TTY_MODE_RAW_name = zend_string_init_interned("TTY_MODE_RAW", sizeof("TTY_MODE_RAW") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_TTY_MODE_RAW_name, &const_TTY_MODE_RAW_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_TTY_MODE_RAW_name, &const_TTY_MODE_RAW_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_TTY_MODE_RAW_name);
 
 	zval const_TTY_MODE_IO_value;
 	ZVAL_LONG(&const_TTY_MODE_IO_value, UV_TTY_MODE_IO);
 	zend_string *const_TTY_MODE_IO_name = zend_string_init_interned("TTY_MODE_IO", sizeof("TTY_MODE_IO") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_TTY_MODE_IO_name, &const_TTY_MODE_IO_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_TTY_MODE_IO_name, &const_TTY_MODE_IO_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_TTY_MODE_IO_name);
 
 	zval const_SIGHUP_value;
 	ZVAL_LONG(&const_SIGHUP_value, SIGHUP);
 	zend_string *const_SIGHUP_name = zend_string_init_interned("SIGHUP", sizeof("SIGHUP") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGHUP_name, &const_SIGHUP_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGHUP_name, &const_SIGHUP_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGHUP_name);
 
 	zval const_SIGINT_value;
 	ZVAL_LONG(&const_SIGINT_value, SIGINT);
 	zend_string *const_SIGINT_name = zend_string_init_interned("SIGINT", sizeof("SIGINT") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGINT_name, &const_SIGINT_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGINT_name, &const_SIGINT_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGINT_name);
 
 	zval const_SIGQUIT_value;
 	ZVAL_LONG(&const_SIGQUIT_value, SIGQUIT);
 	zend_string *const_SIGQUIT_name = zend_string_init_interned("SIGQUIT", sizeof("SIGQUIT") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGQUIT_name, &const_SIGQUIT_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGQUIT_name, &const_SIGQUIT_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGQUIT_name);
 
 	zval const_SIGILL_value;
 	ZVAL_LONG(&const_SIGILL_value, SIGILL);
 	zend_string *const_SIGILL_name = zend_string_init_interned("SIGILL", sizeof("SIGILL") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGILL_name, &const_SIGILL_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGILL_name, &const_SIGILL_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGILL_name);
 
 	zval const_SIGTRAP_value;
 	ZVAL_LONG(&const_SIGTRAP_value, SIGTRAP);
 	zend_string *const_SIGTRAP_name = zend_string_init_interned("SIGTRAP", sizeof("SIGTRAP") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGTRAP_name, &const_SIGTRAP_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGTRAP_name, &const_SIGTRAP_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGTRAP_name);
 
 	zval const_SIGABRT_value;
 	ZVAL_LONG(&const_SIGABRT_value, SIGABRT);
 	zend_string *const_SIGABRT_name = zend_string_init_interned("SIGABRT", sizeof("SIGABRT") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGABRT_name, &const_SIGABRT_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGABRT_name, &const_SIGABRT_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGABRT_name);
 
 	zval const_SIGIOT_value;
 	ZVAL_LONG(&const_SIGIOT_value, SIGIOT);
 	zend_string *const_SIGIOT_name = zend_string_init_interned("SIGIOT", sizeof("SIGIOT") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGIOT_name, &const_SIGIOT_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGIOT_name, &const_SIGIOT_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGIOT_name);
 
 	zval const_SIGBUS_value;
 	ZVAL_LONG(&const_SIGBUS_value, SIGBUS);
 	zend_string *const_SIGBUS_name = zend_string_init_interned("SIGBUS", sizeof("SIGBUS") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGBUS_name, &const_SIGBUS_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGBUS_name, &const_SIGBUS_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGBUS_name);
 
 	zval const_SIGFPE_value;
 	ZVAL_LONG(&const_SIGFPE_value, SIGFPE);
 	zend_string *const_SIGFPE_name = zend_string_init_interned("SIGFPE", sizeof("SIGFPE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGFPE_name, &const_SIGFPE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGFPE_name, &const_SIGFPE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGFPE_name);
 
 	zval const_SIGKILL_value;
 	ZVAL_LONG(&const_SIGKILL_value, SIGKILL);
 	zend_string *const_SIGKILL_name = zend_string_init_interned("SIGKILL", sizeof("SIGKILL") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGKILL_name, &const_SIGKILL_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGKILL_name, &const_SIGKILL_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGKILL_name);
 
 	zval const_SIGUSR1_value;
 	ZVAL_LONG(&const_SIGUSR1_value, SIGUSR1);
 	zend_string *const_SIGUSR1_name = zend_string_init_interned("SIGUSR1", sizeof("SIGUSR1") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGUSR1_name, &const_SIGUSR1_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGUSR1_name, &const_SIGUSR1_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGUSR1_name);
 
 	zval const_SIGUSR2_value;
 	ZVAL_LONG(&const_SIGUSR2_value, SIGUSR2);
 	zend_string *const_SIGUSR2_name = zend_string_init_interned("SIGUSR2", sizeof("SIGUSR2") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGUSR2_name, &const_SIGUSR2_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGUSR2_name, &const_SIGUSR2_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGUSR2_name);
 
 	zval const_SIGSEGV_value;
 	ZVAL_LONG(&const_SIGSEGV_value, SIGSEGV);
 	zend_string *const_SIGSEGV_name = zend_string_init_interned("SIGSEGV", sizeof("SIGSEGV") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGSEGV_name, &const_SIGSEGV_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGSEGV_name, &const_SIGSEGV_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGSEGV_name);
 
 	zval const_SIGPIPE_value;
 	ZVAL_LONG(&const_SIGPIPE_value, SIGPIPE);
 	zend_string *const_SIGPIPE_name = zend_string_init_interned("SIGPIPE", sizeof("SIGPIPE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGPIPE_name, &const_SIGPIPE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGPIPE_name, &const_SIGPIPE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGPIPE_name);
 
 	zval const_SIGALRM_value;
 	ZVAL_LONG(&const_SIGALRM_value, SIGALRM);
 	zend_string *const_SIGALRM_name = zend_string_init_interned("SIGALRM", sizeof("SIGALRM") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGALRM_name, &const_SIGALRM_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGALRM_name, &const_SIGALRM_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGALRM_name);
 
 	zval const_SIGTERM_value;
 	ZVAL_LONG(&const_SIGTERM_value, SIGTERM);
 	zend_string *const_SIGTERM_name = zend_string_init_interned("SIGTERM", sizeof("SIGTERM") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGTERM_name, &const_SIGTERM_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGTERM_name, &const_SIGTERM_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGTERM_name);
 
 	zval const_SIGSTKFLT_value;
 	ZVAL_LONG(&const_SIGSTKFLT_value, SIGSTKFLT);
 	zend_string *const_SIGSTKFLT_name = zend_string_init_interned("SIGSTKFLT", sizeof("SIGSTKFLT") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGSTKFLT_name, &const_SIGSTKFLT_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGSTKFLT_name, &const_SIGSTKFLT_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGSTKFLT_name);
 
 	zval const_SIGCLD_value;
 	ZVAL_LONG(&const_SIGCLD_value, SIGCLD);
 	zend_string *const_SIGCLD_name = zend_string_init_interned("SIGCLD", sizeof("SIGCLD") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGCLD_name, &const_SIGCLD_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGCLD_name, &const_SIGCLD_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGCLD_name);
 
 	zval const_SIGCHLD_value;
 	ZVAL_LONG(&const_SIGCHLD_value, SIGCHLD);
 	zend_string *const_SIGCHLD_name = zend_string_init_interned("SIGCHLD", sizeof("SIGCHLD") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGCHLD_name, &const_SIGCHLD_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGCHLD_name, &const_SIGCHLD_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGCHLD_name);
 
 	zval const_SIGCONT_value;
 	ZVAL_LONG(&const_SIGCONT_value, SIGCONT);
 	zend_string *const_SIGCONT_name = zend_string_init_interned("SIGCONT", sizeof("SIGCONT") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGCONT_name, &const_SIGCONT_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGCONT_name, &const_SIGCONT_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGCONT_name);
 
 	zval const_SIGSTOP_value;
 	ZVAL_LONG(&const_SIGSTOP_value, SIGSTOP);
 	zend_string *const_SIGSTOP_name = zend_string_init_interned("SIGSTOP", sizeof("SIGSTOP") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGSTOP_name, &const_SIGSTOP_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGSTOP_name, &const_SIGSTOP_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGSTOP_name);
 
 	zval const_SIGTSTP_value;
 	ZVAL_LONG(&const_SIGTSTP_value, SIGTSTP);
 	zend_string *const_SIGTSTP_name = zend_string_init_interned("SIGTSTP", sizeof("SIGTSTP") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGTSTP_name, &const_SIGTSTP_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGTSTP_name, &const_SIGTSTP_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGTSTP_name);
 
 	zval const_SIGTTIN_value;
 	ZVAL_LONG(&const_SIGTTIN_value, SIGTTIN);
 	zend_string *const_SIGTTIN_name = zend_string_init_interned("SIGTTIN", sizeof("SIGTTIN") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGTTIN_name, &const_SIGTTIN_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGTTIN_name, &const_SIGTTIN_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGTTIN_name);
 
 	zval const_SIGTTOU_value;
 	ZVAL_LONG(&const_SIGTTOU_value, SIGTTOU);
 	zend_string *const_SIGTTOU_name = zend_string_init_interned("SIGTTOU", sizeof("SIGTTOU") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGTTOU_name, &const_SIGTTOU_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGTTOU_name, &const_SIGTTOU_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGTTOU_name);
 
 	zval const_SIGURG_value;
 	ZVAL_LONG(&const_SIGURG_value, SIGURG);
 	zend_string *const_SIGURG_name = zend_string_init_interned("SIGURG", sizeof("SIGURG") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGURG_name, &const_SIGURG_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGURG_name, &const_SIGURG_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGURG_name);
 
 	zval const_SIGXCPU_value;
 	ZVAL_LONG(&const_SIGXCPU_value, SIGXCPU);
 	zend_string *const_SIGXCPU_name = zend_string_init_interned("SIGXCPU", sizeof("SIGXCPU") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGXCPU_name, &const_SIGXCPU_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGXCPU_name, &const_SIGXCPU_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGXCPU_name);
 
 	zval const_SIGXFSZ_value;
 	ZVAL_LONG(&const_SIGXFSZ_value, SIGXFSZ);
 	zend_string *const_SIGXFSZ_name = zend_string_init_interned("SIGXFSZ", sizeof("SIGXFSZ") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGXFSZ_name, &const_SIGXFSZ_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGXFSZ_name, &const_SIGXFSZ_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGXFSZ_name);
 
 	zval const_SIGVTALRM_value;
 	ZVAL_LONG(&const_SIGVTALRM_value, SIGVTALRM);
 	zend_string *const_SIGVTALRM_name = zend_string_init_interned("SIGVTALRM", sizeof("SIGVTALRM") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGVTALRM_name, &const_SIGVTALRM_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGVTALRM_name, &const_SIGVTALRM_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGVTALRM_name);
 
 	zval const_SIGPROF_value;
 	ZVAL_LONG(&const_SIGPROF_value, SIGPROF);
 	zend_string *const_SIGPROF_name = zend_string_init_interned("SIGPROF", sizeof("SIGPROF") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGPROF_name, &const_SIGPROF_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGPROF_name, &const_SIGPROF_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGPROF_name);
 
 	zval const_SIGWINCH_value;
 	ZVAL_LONG(&const_SIGWINCH_value, SIGWINCH);
 	zend_string *const_SIGWINCH_name = zend_string_init_interned("SIGWINCH", sizeof("SIGWINCH") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGWINCH_name, &const_SIGWINCH_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGWINCH_name, &const_SIGWINCH_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGWINCH_name);
 
 	zval const_SIGPOLL_value;
 	ZVAL_LONG(&const_SIGPOLL_value, SIGPOLL);
 	zend_string *const_SIGPOLL_name = zend_string_init_interned("SIGPOLL", sizeof("SIGPOLL") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGPOLL_name, &const_SIGPOLL_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGPOLL_name, &const_SIGPOLL_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGPOLL_name);
 
 	zval const_SIGIO_value;
 	ZVAL_LONG(&const_SIGIO_value, SIGIO);
 	zend_string *const_SIGIO_name = zend_string_init_interned("SIGIO", sizeof("SIGIO") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGIO_name, &const_SIGIO_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGIO_name, &const_SIGIO_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGIO_name);
 
 	zval const_SIGPWR_value;
 	ZVAL_LONG(&const_SIGPWR_value, SIGPWR);
 	zend_string *const_SIGPWR_name = zend_string_init_interned("SIGPWR", sizeof("SIGPWR") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGPWR_name, &const_SIGPWR_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGPWR_name, &const_SIGPWR_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGPWR_name);
 
 	zval const_SIGSYS_value;
 	ZVAL_LONG(&const_SIGSYS_value, SIGSYS);
 	zend_string *const_SIGSYS_name = zend_string_init_interned("SIGSYS", sizeof("SIGSYS") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGSYS_name, &const_SIGSYS_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGSYS_name, &const_SIGSYS_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGSYS_name);
 
 	zval const_SIGBABY_value;
 	ZVAL_LONG(&const_SIGBABY_value, SIGSYS);
 	zend_string *const_SIGBABY_name = zend_string_init_interned("SIGBABY", sizeof("SIGBABY") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_SIGBABY_name, &const_SIGBABY_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_SIGBABY_name, &const_SIGBABY_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_SIGBABY_name);
 
 	zval const_UV_UNKNOWN_HANDLE_value;
 	ZVAL_LONG(&const_UV_UNKNOWN_HANDLE_value, UV_UNKNOWN_HANDLE);
 	zend_string *const_UV_UNKNOWN_HANDLE_name = zend_string_init_interned("UV_UNKNOWN_HANDLE", sizeof("UV_UNKNOWN_HANDLE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_UV_UNKNOWN_HANDLE_name, &const_UV_UNKNOWN_HANDLE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_UV_UNKNOWN_HANDLE_name, &const_UV_UNKNOWN_HANDLE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_UV_UNKNOWN_HANDLE_name);
 
 	zval const_IS_UV_ASYNC_value;
 	ZVAL_LONG(&const_IS_UV_ASYNC_value, IS_UV_ASYNC);
 	zend_string *const_IS_UV_ASYNC_name = zend_string_init_interned("IS_UV_ASYNC", sizeof("IS_UV_ASYNC") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_ASYNC_name, &const_IS_UV_ASYNC_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_ASYNC_name, &const_IS_UV_ASYNC_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_ASYNC_name);
 
 	zval const_IS_UV_CHECK_value;
 	ZVAL_LONG(&const_IS_UV_CHECK_value, IS_UV_CHECK);
 	zend_string *const_IS_UV_CHECK_name = zend_string_init_interned("IS_UV_CHECK", sizeof("IS_UV_CHECK") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_CHECK_name, &const_IS_UV_CHECK_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_CHECK_name, &const_IS_UV_CHECK_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_CHECK_name);
 
 	zval const_IS_UV_FS_EVENT_value;
 	ZVAL_LONG(&const_IS_UV_FS_EVENT_value, IS_UV_FS_EVENT);
 	zend_string *const_IS_UV_FS_EVENT_name = zend_string_init_interned("IS_UV_FS_EVENT", sizeof("IS_UV_FS_EVENT") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_FS_EVENT_name, &const_IS_UV_FS_EVENT_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_FS_EVENT_name, &const_IS_UV_FS_EVENT_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_FS_EVENT_name);
 
 	zval const_IS_UV_FS_POLL_value;
 	ZVAL_LONG(&const_IS_UV_FS_POLL_value, IS_UV_FS_POLL);
 	zend_string *const_IS_UV_FS_POLL_name = zend_string_init_interned("IS_UV_FS_POLL", sizeof("IS_UV_FS_POLL") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_FS_POLL_name, &const_IS_UV_FS_POLL_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_FS_POLL_name, &const_IS_UV_FS_POLL_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_FS_POLL_name);
 
 	zval const_IS_UV_HANDLE_value;
 	ZVAL_LONG(&const_IS_UV_HANDLE_value, IS_UV_HANDLE);
 	zend_string *const_IS_UV_HANDLE_name = zend_string_init_interned("IS_UV_HANDLE", sizeof("IS_UV_HANDLE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_HANDLE_name, &const_IS_UV_HANDLE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_HANDLE_name, &const_IS_UV_HANDLE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_HANDLE_name);
 
 	zval const_IS_UV_IDLE_value;
 	ZVAL_LONG(&const_IS_UV_IDLE_value, IS_UV_IDLE);
 	zend_string *const_IS_UV_IDLE_name = zend_string_init_interned("IS_UV_IDLE", sizeof("IS_UV_IDLE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_IDLE_name, &const_IS_UV_IDLE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_IDLE_name, &const_IS_UV_IDLE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_IDLE_name);
 
 	zval const_IS_UV_PIPE_value;
 	ZVAL_LONG(&const_IS_UV_PIPE_value, IS_UV_PIPE);
 	zend_string *const_IS_UV_PIPE_name = zend_string_init_interned("IS_UV_PIPE", sizeof("IS_UV_PIPE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_PIPE_name, &const_IS_UV_PIPE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_PIPE_name, &const_IS_UV_PIPE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_PIPE_name);
 
 	zval const_IS_UV_POLL_value;
 	ZVAL_LONG(&const_IS_UV_POLL_value, IS_UV_POLL);
 	zend_string *const_IS_UV_POLL_name = zend_string_init_interned("IS_UV_POLL", sizeof("IS_UV_POLL") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_POLL_name, &const_IS_UV_POLL_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_POLL_name, &const_IS_UV_POLL_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_POLL_name);
 
 	zval const_IS_UV_PREPARE_value;
 	ZVAL_LONG(&const_IS_UV_PREPARE_value, IS_UV_PREPARE);
 	zend_string *const_IS_UV_PREPARE_name = zend_string_init_interned("IS_UV_PREPARE", sizeof("IS_UV_PREPARE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_PREPARE_name, &const_IS_UV_PREPARE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_PREPARE_name, &const_IS_UV_PREPARE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_PREPARE_name);
 
 	zval const_IS_UV_PROCESS_value;
 	ZVAL_LONG(&const_IS_UV_PROCESS_value, IS_UV_PROCESS);
 	zend_string *const_IS_UV_PROCESS_name = zend_string_init_interned("IS_UV_PROCESS", sizeof("IS_UV_PROCESS") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_PROCESS_name, &const_IS_UV_PROCESS_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_PROCESS_name, &const_IS_UV_PROCESS_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_PROCESS_name);
 
 	zval const_IS_UV_STREAM_value;
 	ZVAL_LONG(&const_IS_UV_STREAM_value, IS_UV_STREAM);
 	zend_string *const_IS_UV_STREAM_name = zend_string_init_interned("IS_UV_STREAM", sizeof("IS_UV_STREAM") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_STREAM_name, &const_IS_UV_STREAM_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_STREAM_name, &const_IS_UV_STREAM_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_STREAM_name);
 
 	zval const_IS_UV_TCP_value;
 	ZVAL_LONG(&const_IS_UV_TCP_value, IS_UV_TCP);
 	zend_string *const_IS_UV_TCP_name = zend_string_init_interned("IS_UV_TCP", sizeof("IS_UV_TCP") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_TCP_name, &const_IS_UV_TCP_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_TCP_name, &const_IS_UV_TCP_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_TCP_name);
 
 	zval const_IS_UV_TIMER_value;
 	ZVAL_LONG(&const_IS_UV_TIMER_value, IS_UV_TIMER);
 	zend_string *const_IS_UV_TIMER_name = zend_string_init_interned("IS_UV_TIMER", sizeof("IS_UV_TIMER") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_TIMER_name, &const_IS_UV_TIMER_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_TIMER_name, &const_IS_UV_TIMER_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_TIMER_name);
 
 	zval const_IS_UV_TTY_value;
 	ZVAL_LONG(&const_IS_UV_TTY_value, IS_UV_TTY);
 	zend_string *const_IS_UV_TTY_name = zend_string_init_interned("IS_UV_TTY", sizeof("IS_UV_TTY") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_TTY_name, &const_IS_UV_TTY_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_TTY_name, &const_IS_UV_TTY_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_TTY_name);
 
 	zval const_IS_UV_UDP_value;
 	ZVAL_LONG(&const_IS_UV_UDP_value, IS_UV_UDP);
 	zend_string *const_IS_UV_UDP_name = zend_string_init_interned("IS_UV_UDP", sizeof("IS_UV_UDP") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_UDP_name, &const_IS_UV_UDP_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_UDP_name, &const_IS_UV_UDP_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_UDP_name);
 
 	zval const_IS_UV_SIGNAL_value;
 	ZVAL_LONG(&const_IS_UV_SIGNAL_value, IS_UV_SIGNAL);
 	zend_string *const_IS_UV_SIGNAL_name = zend_string_init_interned("IS_UV_SIGNAL", sizeof("IS_UV_SIGNAL") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_SIGNAL_name, &const_IS_UV_SIGNAL_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_SIGNAL_name, &const_IS_UV_SIGNAL_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_SIGNAL_name);
 
 	zval const_UV_FILE_value;
 	ZVAL_LONG(&const_UV_FILE_value, UV_FILE);
 	zend_string *const_UV_FILE_name = zend_string_init_interned("UV_FILE", sizeof("UV_FILE") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_UV_FILE_name, &const_UV_FILE_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_UV_FILE_name, &const_UV_FILE_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_UV_FILE_name);
 
 	zval const_IS_UV_WORK_value;
 	ZVAL_LONG(&const_IS_UV_WORK_value, IS_UV_WORK);
 	zend_string *const_IS_UV_WORK_name = zend_string_init_interned("IS_UV_WORK", sizeof("IS_UV_WORK") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_WORK_name, &const_IS_UV_WORK_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_WORK_name, &const_IS_UV_WORK_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_WORK_name);
 
 	zval const_IS_UV_ADDRINFO_value;
 	ZVAL_LONG(&const_IS_UV_ADDRINFO_value, IS_UV_ADDRINFO);
 	zend_string *const_IS_UV_ADDRINFO_name = zend_string_init_interned("IS_UV_ADDRINFO", sizeof("IS_UV_ADDRINFO") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_ADDRINFO_name, &const_IS_UV_ADDRINFO_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_ADDRINFO_name, &const_IS_UV_ADDRINFO_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_ADDRINFO_name);
 
 	zval const_IS_UV_LOOP_value;
 	ZVAL_LONG(&const_IS_UV_LOOP_value, IS_UV_LOOP);
 	zend_string *const_IS_UV_LOOP_name = zend_string_init_interned("IS_UV_LOOP", sizeof("IS_UV_LOOP") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_IS_UV_LOOP_name, &const_IS_UV_LOOP_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_IS_UV_LOOP_name, &const_IS_UV_LOOP_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_IS_UV_LOOP_name);
 
 	zval const_HANDLE_TYPE_MAX_value;
 	ZVAL_LONG(&const_HANDLE_TYPE_MAX_value, UV_HANDLE_TYPE_MAX);
 	zend_string *const_HANDLE_TYPE_MAX_name = zend_string_init_interned("HANDLE_TYPE_MAX", sizeof("HANDLE_TYPE_MAX") - 1, 1);
+#if (PHP_VERSION_ID >= 80300)
 	zend_declare_typed_class_constant(class_entry, const_HANDLE_TYPE_MAX_name, &const_HANDLE_TYPE_MAX_value, ZEND_ACC_PUBLIC, NULL, (zend_type) ZEND_TYPE_INIT_MASK(MAY_BE_LONG));
+#else
+	zend_declare_class_constant_ex(class_entry, const_HANDLE_TYPE_MAX_name, &const_HANDLE_TYPE_MAX_value, ZEND_ACC_PUBLIC, NULL);
+#endif
 	zend_string_release(const_HANDLE_TYPE_MAX_name);
 
 	return class_entry;
@@ -2067,3 +2542,92 @@ static zend_class_entry *register_class_UVWork(zend_class_entry *class_entry_UV)
 
 	return class_entry;
 }
+
+#if PHP_VERSION_ID >= 80300
+static zend_class_entry *register_class_UVHandleType(void)
+{
+	zend_class_entry *class_entry = zend_register_internal_enum("UVHandleType", IS_LONG, class_UVHandleType_methods);
+
+	zval enum_case_IS_UV_ASYNC_value;
+	ZVAL_LONG(&enum_case_IS_UV_ASYNC_value, IS_UV_ASYNC);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_ASYNC", &enum_case_IS_UV_ASYNC_value);
+
+	zval enum_case_IS_UV_CHECK_value;
+	ZVAL_LONG(&enum_case_IS_UV_CHECK_value, IS_UV_CHECK);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_CHECK", &enum_case_IS_UV_CHECK_value);
+
+	zval enum_case_IS_UV_FS_EVENT_value;
+	ZVAL_LONG(&enum_case_IS_UV_FS_EVENT_value, IS_UV_FS_EVENT);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_FS_EVENT", &enum_case_IS_UV_FS_EVENT_value);
+
+	zval enum_case_IS_UV_FS_POLL_value;
+	ZVAL_LONG(&enum_case_IS_UV_FS_POLL_value, IS_UV_FS_POLL);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_FS_POLL", &enum_case_IS_UV_FS_POLL_value);
+
+	zval enum_case_IS_UV_HANDLE_value;
+	ZVAL_LONG(&enum_case_IS_UV_HANDLE_value, IS_UV_HANDLE);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_HANDLE", &enum_case_IS_UV_HANDLE_value);
+
+	zval enum_case_IS_UV_IDLE_value;
+	ZVAL_LONG(&enum_case_IS_UV_IDLE_value, IS_UV_IDLE);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_IDLE", &enum_case_IS_UV_IDLE_value);
+
+	zval enum_case_IS_UV_PIPE_value;
+	ZVAL_LONG(&enum_case_IS_UV_PIPE_value, IS_UV_PIPE);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_PIPE", &enum_case_IS_UV_PIPE_value);
+
+	zval enum_case_IS_UV_POLL_value;
+	ZVAL_LONG(&enum_case_IS_UV_POLL_value, IS_UV_POLL);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_POLL", &enum_case_IS_UV_POLL_value);
+
+	zval enum_case_IS_UV_PREPARE_value;
+	ZVAL_LONG(&enum_case_IS_UV_PREPARE_value, IS_UV_PREPARE);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_PREPARE", &enum_case_IS_UV_PREPARE_value);
+
+	zval enum_case_IS_UV_PROCESS_value;
+	ZVAL_LONG(&enum_case_IS_UV_PROCESS_value, IS_UV_PROCESS);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_PROCESS", &enum_case_IS_UV_PROCESS_value);
+
+	zval enum_case_IS_UV_STREAM_value;
+	ZVAL_LONG(&enum_case_IS_UV_STREAM_value, IS_UV_STREAM);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_STREAM", &enum_case_IS_UV_STREAM_value);
+
+	zval enum_case_IS_UV_TCP_value;
+	ZVAL_LONG(&enum_case_IS_UV_TCP_value, IS_UV_TCP);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_TCP", &enum_case_IS_UV_TCP_value);
+
+	zval enum_case_IS_UV_TIMER_value;
+	ZVAL_LONG(&enum_case_IS_UV_TIMER_value, IS_UV_TIMER);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_TIMER", &enum_case_IS_UV_TIMER_value);
+
+	zval enum_case_IS_UV_TTY_value;
+	ZVAL_LONG(&enum_case_IS_UV_TTY_value, IS_UV_TTY);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_TTY", &enum_case_IS_UV_TTY_value);
+
+	zval enum_case_IS_UV_UDP_value;
+	ZVAL_LONG(&enum_case_IS_UV_UDP_value, IS_UV_UDP);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_UDP", &enum_case_IS_UV_UDP_value);
+
+	zval enum_case_IS_UV_SIGNAL_value;
+	ZVAL_LONG(&enum_case_IS_UV_SIGNAL_value, IS_UV_SIGNAL);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_SIGNAL", &enum_case_IS_UV_SIGNAL_value);
+
+	zval enum_case_UV_FILE_value;
+	ZVAL_LONG(&enum_case_UV_FILE_value, UV_FILE);
+	zend_enum_add_case_cstr(class_entry, "UV_FILE", &enum_case_UV_FILE_value);
+
+	zval enum_case_IS_UV_WORK_value;
+	ZVAL_LONG(&enum_case_IS_UV_WORK_value, IS_UV_WORK);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_WORK", &enum_case_IS_UV_WORK_value);
+
+	zval enum_case_IS_UV_ADDRINFO_value;
+	ZVAL_LONG(&enum_case_IS_UV_ADDRINFO_value, IS_UV_ADDRINFO);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_ADDRINFO", &enum_case_IS_UV_ADDRINFO_value);
+
+	zval enum_case_IS_UV_LOOP_value;
+	ZVAL_LONG(&enum_case_IS_UV_LOOP_value, IS_UV_LOOP);
+	zend_enum_add_case_cstr(class_entry, "IS_UV_LOOP", &enum_case_IS_UV_LOOP_value);
+
+	return class_entry;
+}
+#endif
